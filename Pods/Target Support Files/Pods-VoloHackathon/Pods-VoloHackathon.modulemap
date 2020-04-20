@@ -1,0 +1,6 @@
+framework module Pods_VoloHackathon {
+  umbrella header "Pods-VoloHackathon-umbrella.h"
+
+  export *
+  module * { export * }
+}

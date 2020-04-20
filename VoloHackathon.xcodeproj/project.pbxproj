@@ -1,0 +1,578 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		023798D6244E45E900C6DE74 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 023798D5244E45E900C6DE74 /* AppDelegate.swift */; };
+		023798D8244E45E900C6DE74 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 023798D7244E45E900C6DE74 /* SceneDelegate.swift */; };
+		023798DA244E45E900C6DE74 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 023798D9244E45E900C6DE74 /* ViewController.swift */; };
+		023798DD244E45E900C6DE74 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 023798DB244E45E900C6DE74 /* Main.storyboard */; };
+		023798DF244E45ED00C6DE74 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 023798DE244E45ED00C6DE74 /* Assets.xcassets */; };
+		023798E2244E45ED00C6DE74 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 023798E0244E45ED00C6DE74 /* LaunchScreen.storyboard */; };
+		023798ED244E45EE00C6DE74 /* VoloHackathonTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 023798EC244E45EE00C6DE74 /* VoloHackathonTests.swift */; };
+		3D97445F6B970AB53CE6C933 /* Pods_VoloHackathon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C3B9DF9D3C0CF2B69412D62A /* Pods_VoloHackathon.framework */; };
+		AAFB40247320D25FADB5A144 /* Pods_VoloHackathonTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 10101B2C777547EEE3E1D1FE /* Pods_VoloHackathonTests.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		023798E9244E45EE00C6DE74 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 023798CA244E45E900C6DE74 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 023798D1244E45E900C6DE74;
+			remoteInfo = VoloHackathon;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		023798D2244E45E900C6DE74 /* VoloHackathon.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VoloHackathon.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		023798D5244E45E900C6DE74 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		023798D7244E45E900C6DE74 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		023798D9244E45E900C6DE74 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		023798DC244E45E900C6DE74 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		023798DE244E45ED00C6DE74 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		023798E1244E45ED00C6DE74 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		023798E3244E45ED00C6DE74 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		023798E8244E45EE00C6DE74 /* VoloHackathonTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = VoloHackathonTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		023798EC244E45EE00C6DE74 /* VoloHackathonTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoloHackathonTests.swift; sourceTree = "<group>"; };
+		023798EE244E45EE00C6DE74 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		10101B2C777547EEE3E1D1FE /* Pods_VoloHackathonTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_VoloHackathonTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		4C28F2F4EEA6DC08019A9E44 /* Pods-VoloHackathon.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VoloHackathon.release.xcconfig"; path = "Target Support Files/Pods-VoloHackathon/Pods-VoloHackathon.release.xcconfig"; sourceTree = "<group>"; };
+		AABCD81EA870D3D47914D9F4 /* Pods-VoloHackathon.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VoloHackathon.debug.xcconfig"; path = "Target Support Files/Pods-VoloHackathon/Pods-VoloHackathon.debug.xcconfig"; sourceTree = "<group>"; };
+		BBDFD53CE3D03C5988890656 /* Pods-VoloHackathonTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VoloHackathonTests.release.xcconfig"; path = "Target Support Files/Pods-VoloHackathonTests/Pods-VoloHackathonTests.release.xcconfig"; sourceTree = "<group>"; };
+		C3B9DF9D3C0CF2B69412D62A /* Pods_VoloHackathon.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_VoloHackathon.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D34AE5161A504B754F974121 /* Pods-VoloHackathonTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VoloHackathonTests.debug.xcconfig"; path = "Target Support Files/Pods-VoloHackathonTests/Pods-VoloHackathonTests.debug.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		023798CF244E45E900C6DE74 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3D97445F6B970AB53CE6C933 /* Pods_VoloHackathon.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		023798E5244E45EE00C6DE74 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AAFB40247320D25FADB5A144 /* Pods_VoloHackathonTests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		023798C9244E45E900C6DE74 = {
+			isa = PBXGroup;
+			children = (
+				023798D4244E45E900C6DE74 /* VoloHackathon */,
+				023798EB244E45EE00C6DE74 /* VoloHackathonTests */,
+				023798D3244E45E900C6DE74 /* Products */,
+				D2B780008BF71DE685DA2979 /* Pods */,
+				84A7E0C0A156B4DD69FD3C80 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		023798D3244E45E900C6DE74 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				023798D2244E45E900C6DE74 /* VoloHackathon.app */,
+				023798E8244E45EE00C6DE74 /* VoloHackathonTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		023798D4244E45E900C6DE74 /* VoloHackathon */ = {
+			isa = PBXGroup;
+			children = (
+				023798D5244E45E900C6DE74 /* AppDelegate.swift */,
+				023798D7244E45E900C6DE74 /* SceneDelegate.swift */,
+				023798D9244E45E900C6DE74 /* ViewController.swift */,
+				023798DB244E45E900C6DE74 /* Main.storyboard */,
+				023798DE244E45ED00C6DE74 /* Assets.xcassets */,
+				023798E0244E45ED00C6DE74 /* LaunchScreen.storyboard */,
+				023798E3244E45ED00C6DE74 /* Info.plist */,
+			);
+			path = VoloHackathon;
+			sourceTree = "<group>";
+		};
+		023798EB244E45EE00C6DE74 /* VoloHackathonTests */ = {
+			isa = PBXGroup;
+			children = (
+				023798EC244E45EE00C6DE74 /* VoloHackathonTests.swift */,
+				023798EE244E45EE00C6DE74 /* Info.plist */,
+			);
+			path = VoloHackathonTests;
+			sourceTree = "<group>";
+		};
+		84A7E0C0A156B4DD69FD3C80 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				C3B9DF9D3C0CF2B69412D62A /* Pods_VoloHackathon.framework */,
+				10101B2C777547EEE3E1D1FE /* Pods_VoloHackathonTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		D2B780008BF71DE685DA2979 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				AABCD81EA870D3D47914D9F4 /* Pods-VoloHackathon.debug.xcconfig */,
+				4C28F2F4EEA6DC08019A9E44 /* Pods-VoloHackathon.release.xcconfig */,
+				D34AE5161A504B754F974121 /* Pods-VoloHackathonTests.debug.xcconfig */,
+				BBDFD53CE3D03C5988890656 /* Pods-VoloHackathonTests.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		023798D1244E45E900C6DE74 /* VoloHackathon */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 023798F1244E45EE00C6DE74 /* Build configuration list for PBXNativeTarget "VoloHackathon" */;
+			buildPhases = (
+				B50C8EA9C0740D3F0F7AEB97 /* [CP] Check Pods Manifest.lock */,
+				023798CE244E45E900C6DE74 /* Sources */,
+				023798CF244E45E900C6DE74 /* Frameworks */,
+				023798D0244E45E900C6DE74 /* Resources */,
+				7E7BD9DF78C9EAC3A898D865 /* [CP] Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = VoloHackathon;
+			productName = VoloHackathon;
+			productReference = 023798D2244E45E900C6DE74 /* VoloHackathon.app */;
+			productType = "com.apple.product-type.application";
+		};
+		023798E7244E45EE00C6DE74 /* VoloHackathonTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 023798F4244E45EE00C6DE74 /* Build configuration list for PBXNativeTarget "VoloHackathonTests" */;
+			buildPhases = (
+				2127743313B9B77552BB1802 /* [CP] Check Pods Manifest.lock */,
+				023798E4244E45EE00C6DE74 /* Sources */,
+				023798E5244E45EE00C6DE74 /* Frameworks */,
+				023798E6244E45EE00C6DE74 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				023798EA244E45EE00C6DE74 /* PBXTargetDependency */,
+			);
+			name = VoloHackathonTests;
+			productName = VoloHackathonTests;
+			productReference = 023798E8244E45EE00C6DE74 /* VoloHackathonTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		023798CA244E45E900C6DE74 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1140;
+				LastUpgradeCheck = 1140;
+				ORGANIZATIONNAME = "Kelby Mittan";
+				TargetAttributes = {
+					023798D1244E45E900C6DE74 = {
+						CreatedOnToolsVersion = 11.4;
+					};
+					023798E7244E45EE00C6DE74 = {
+						CreatedOnToolsVersion = 11.4;
+						TestTargetID = 023798D1244E45E900C6DE74;
+					};
+				};
+			};
+			buildConfigurationList = 023798CD244E45E900C6DE74 /* Build configuration list for PBXProject "VoloHackathon" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 023798C9244E45E900C6DE74;
+			productRefGroup = 023798D3244E45E900C6DE74 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				023798D1244E45E900C6DE74 /* VoloHackathon */,
+				023798E7244E45EE00C6DE74 /* VoloHackathonTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		023798D0244E45E900C6DE74 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				023798E2244E45ED00C6DE74 /* LaunchScreen.storyboard in Resources */,
+				023798DF244E45ED00C6DE74 /* Assets.xcassets in Resources */,
+				023798DD244E45E900C6DE74 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		023798E6244E45EE00C6DE74 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		2127743313B9B77552BB1802 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-VoloHackathonTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		7E7BD9DF78C9EAC3A898D865 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-VoloHackathon/Pods-VoloHackathon-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-VoloHackathon/Pods-VoloHackathon-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-VoloHackathon/Pods-VoloHackathon-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B50C8EA9C0740D3F0F7AEB97 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-VoloHackathon-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		023798CE244E45E900C6DE74 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				023798DA244E45E900C6DE74 /* ViewController.swift in Sources */,
+				023798D6244E45E900C6DE74 /* AppDelegate.swift in Sources */,
+				023798D8244E45E900C6DE74 /* SceneDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		023798E4244E45EE00C6DE74 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				023798ED244E45EE00C6DE74 /* VoloHackathonTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		023798EA244E45EE00C6DE74 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 023798D1244E45E900C6DE74 /* VoloHackathon */;
+			targetProxy = 023798E9244E45EE00C6DE74 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		023798DB244E45E900C6DE74 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				023798DC244E45E900C6DE74 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		023798E0244E45ED00C6DE74 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				023798E1244E45ED00C6DE74 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		023798EF244E45EE00C6DE74 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		023798F0244E45EE00C6DE74 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		023798F2244E45EE00C6DE74 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = AABCD81EA870D3D47914D9F4 /* Pods-VoloHackathon.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 87F72Z6LFG;
+				INFOPLIST_FILE = VoloHackathon/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.kelbymittan.VoloHackathon;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		023798F3244E45EE00C6DE74 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4C28F2F4EEA6DC08019A9E44 /* Pods-VoloHackathon.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 87F72Z6LFG;
+				INFOPLIST_FILE = VoloHackathon/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.kelbymittan.VoloHackathon;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		023798F5244E45EE00C6DE74 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = D34AE5161A504B754F974121 /* Pods-VoloHackathonTests.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 87F72Z6LFG;
+				INFOPLIST_FILE = VoloHackathonTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.kelbymittan.VoloHackathonTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/VoloHackathon.app/VoloHackathon";
+			};
+			name = Debug;
+		};
+		023798F6244E45EE00C6DE74 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = BBDFD53CE3D03C5988890656 /* Pods-VoloHackathonTests.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 87F72Z6LFG;
+				INFOPLIST_FILE = VoloHackathonTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.kelbymittan.VoloHackathonTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/VoloHackathon.app/VoloHackathon";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		023798CD244E45E900C6DE74 /* Build configuration list for PBXProject "VoloHackathon" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				023798EF244E45EE00C6DE74 /* Debug */,
+				023798F0244E45EE00C6DE74 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		023798F1244E45EE00C6DE74 /* Build configuration list for PBXNativeTarget "VoloHackathon" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				023798F2244E45EE00C6DE74 /* Debug */,
+				023798F3244E45EE00C6DE74 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		023798F4244E45EE00C6DE74 /* Build configuration list for PBXNativeTarget "VoloHackathonTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				023798F5244E45EE00C6DE74 /* Debug */,
+				023798F6244E45EE00C6DE74 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 023798CA244E45E900C6DE74 /* Project object */;
+}
