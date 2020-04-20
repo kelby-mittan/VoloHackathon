@@ -3,17 +3,20 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		023798D6244E45E900C6DE74 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 023798D5244E45E900C6DE74 /* AppDelegate.swift */; };
 		023798D8244E45E900C6DE74 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 023798D7244E45E900C6DE74 /* SceneDelegate.swift */; };
-		023798DA244E45E900C6DE74 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 023798D9244E45E900C6DE74 /* ViewController.swift */; };
-		023798DD244E45E900C6DE74 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 023798DB244E45E900C6DE74 /* Main.storyboard */; };
 		023798DF244E45ED00C6DE74 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 023798DE244E45ED00C6DE74 /* Assets.xcassets */; };
 		023798E2244E45ED00C6DE74 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 023798E0244E45ED00C6DE74 /* LaunchScreen.storyboard */; };
 		023798ED244E45EE00C6DE74 /* VoloHackathonTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 023798EC244E45EE00C6DE74 /* VoloHackathonTests.swift */; };
+		023798FE244E4AA100C6DE74 /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 023798FD244E4AA100C6DE74 /* Login.storyboard */; };
+		02379900244E4ABF00C6DE74 /* Volunteer.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 023798FF244E4ABF00C6DE74 /* Volunteer.storyboard */; };
+		02379902244E4AD900C6DE74 /* Organization.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 02379901244E4AD900C6DE74 /* Organization.storyboard */; };
+		02379904244E4B0A00C6DE74 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02379903244E4B0A00C6DE74 /* LoginViewController.swift */; };
+		02379906244E4B7500C6DE74 /* UIViewController+Navigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02379905244E4B7500C6DE74 /* UIViewController+Navigation.swift */; };
 		3D97445F6B970AB53CE6C933 /* Pods_VoloHackathon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C3B9DF9D3C0CF2B69412D62A /* Pods_VoloHackathon.framework */; };
 		AAFB40247320D25FADB5A144 /* Pods_VoloHackathonTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 10101B2C777547EEE3E1D1FE /* Pods_VoloHackathonTests.framework */; };
 /* End PBXBuildFile section */
@@ -32,14 +35,17 @@
 		023798D2244E45E900C6DE74 /* VoloHackathon.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VoloHackathon.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		023798D5244E45E900C6DE74 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		023798D7244E45E900C6DE74 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		023798D9244E45E900C6DE74 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		023798DC244E45E900C6DE74 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		023798DE244E45ED00C6DE74 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		023798E1244E45ED00C6DE74 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		023798E3244E45ED00C6DE74 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		023798E8244E45EE00C6DE74 /* VoloHackathonTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = VoloHackathonTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		023798EC244E45EE00C6DE74 /* VoloHackathonTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoloHackathonTests.swift; sourceTree = "<group>"; };
 		023798EE244E45EE00C6DE74 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		023798FD244E4AA100C6DE74 /* Login.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
+		023798FF244E4ABF00C6DE74 /* Volunteer.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Volunteer.storyboard; sourceTree = "<group>"; };
+		02379901244E4AD900C6DE74 /* Organization.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Organization.storyboard; sourceTree = "<group>"; };
+		02379903244E4B0A00C6DE74 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		02379905244E4B7500C6DE74 /* UIViewController+Navigation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Navigation.swift"; sourceTree = "<group>"; };
 		10101B2C777547EEE3E1D1FE /* Pods_VoloHackathonTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_VoloHackathonTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4C28F2F4EEA6DC08019A9E44 /* Pods-VoloHackathon.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VoloHackathon.release.xcconfig"; path = "Target Support Files/Pods-VoloHackathon/Pods-VoloHackathon.release.xcconfig"; sourceTree = "<group>"; };
 		AABCD81EA870D3D47914D9F4 /* Pods-VoloHackathon.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VoloHackathon.debug.xcconfig"; path = "Target Support Files/Pods-VoloHackathon/Pods-VoloHackathon.debug.xcconfig"; sourceTree = "<group>"; };
@@ -91,12 +97,12 @@
 		023798D4244E45E900C6DE74 /* VoloHackathon */ = {
 			isa = PBXGroup;
 			children = (
-				023798D5244E45E900C6DE74 /* AppDelegate.swift */,
-				023798D7244E45E900C6DE74 /* SceneDelegate.swift */,
-				023798D9244E45E900C6DE74 /* ViewController.swift */,
-				023798DB244E45E900C6DE74 /* Main.storyboard */,
-				023798DE244E45ED00C6DE74 /* Assets.xcassets */,
-				023798E0244E45ED00C6DE74 /* LaunchScreen.storyboard */,
+				023798F8244E49F200C6DE74 /* Storyboards */,
+				023798FA244E4A3800C6DE74 /* Controllers */,
+				023798FB244E4A5600C6DE74 /* Views */,
+				023798FC244E4A6500C6DE74 /* Firebase Services */,
+				023798F9244E4A2D00C6DE74 /* Extensions */,
+				023798F7244E494A00C6DE74 /* Supporting Files */,
 				023798E3244E45ED00C6DE74 /* Info.plist */,
 			);
 			path = VoloHackathon;
@@ -109,6 +115,57 @@
 				023798EE244E45EE00C6DE74 /* Info.plist */,
 			);
 			path = VoloHackathonTests;
+			sourceTree = "<group>";
+		};
+		023798F7244E494A00C6DE74 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				023798D5244E45E900C6DE74 /* AppDelegate.swift */,
+				023798D7244E45E900C6DE74 /* SceneDelegate.swift */,
+				023798DE244E45ED00C6DE74 /* Assets.xcassets */,
+				023798E0244E45ED00C6DE74 /* LaunchScreen.storyboard */,
+			);
+			path = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		023798F8244E49F200C6DE74 /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				023798FD244E4AA100C6DE74 /* Login.storyboard */,
+				023798FF244E4ABF00C6DE74 /* Volunteer.storyboard */,
+				02379901244E4AD900C6DE74 /* Organization.storyboard */,
+			);
+			path = Storyboards;
+			sourceTree = "<group>";
+		};
+		023798F9244E4A2D00C6DE74 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				02379905244E4B7500C6DE74 /* UIViewController+Navigation.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		023798FA244E4A3800C6DE74 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				02379903244E4B0A00C6DE74 /* LoginViewController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		023798FB244E4A5600C6DE74 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		023798FC244E4A6500C6DE74 /* Firebase Services */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "Firebase Services";
 			sourceTree = "<group>";
 		};
 		84A7E0C0A156B4DD69FD3C80 /* Frameworks */ = {
@@ -128,7 +185,6 @@
 				D34AE5161A504B754F974121 /* Pods-VoloHackathonTests.debug.xcconfig */,
 				BBDFD53CE3D03C5988890656 /* Pods-VoloHackathonTests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -218,7 +274,9 @@
 			files = (
 				023798E2244E45ED00C6DE74 /* LaunchScreen.storyboard in Resources */,
 				023798DF244E45ED00C6DE74 /* Assets.xcassets in Resources */,
-				023798DD244E45E900C6DE74 /* Main.storyboard in Resources */,
+				02379902244E4AD900C6DE74 /* Organization.storyboard in Resources */,
+				023798FE244E4AA100C6DE74 /* Login.storyboard in Resources */,
+				02379900244E4ABF00C6DE74 /* Volunteer.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -300,7 +358,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				023798DA244E45E900C6DE74 /* ViewController.swift in Sources */,
+				02379906244E4B7500C6DE74 /* UIViewController+Navigation.swift in Sources */,
+				02379904244E4B0A00C6DE74 /* LoginViewController.swift in Sources */,
 				023798D6244E45E900C6DE74 /* AppDelegate.swift in Sources */,
 				023798D8244E45E900C6DE74 /* SceneDelegate.swift in Sources */,
 			);
@@ -325,14 +384,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		023798DB244E45E900C6DE74 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				023798DC244E45E900C6DE74 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		023798E0244E45ED00C6DE74 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
