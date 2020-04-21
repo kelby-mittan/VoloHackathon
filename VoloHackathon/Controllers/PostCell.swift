@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Kingfisher
 
 class PostCell: UICollectionViewCell {
 
@@ -152,7 +153,11 @@ class PostCell: UICollectionViewCell {
     
     
     
-    public func configureCell() { // should take in a posting 
+    public func configureCell(_ post: Post) {
+        
+        shortDescriptionLabel.text = post.shortDescription
+        dateLabel.text = post.startDate.description
+        postImage.kf.setImage(with: URL(string: post.imageURL))
         
     }
 
