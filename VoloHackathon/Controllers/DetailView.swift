@@ -82,7 +82,7 @@ class DetailView: UIView {
     public lazy var volunteerButton: UIButton = {
         let button = UIButton()
         button.setTitle("I Want to Help!", for: .normal)
-        button.backgroundColor = .gray
+        button.backgroundColor = #colorLiteral(red: 0.9568627477, green: 0.6588235497, blue: 0.5450980663, alpha: 1)
         return button
     }()
     
@@ -184,7 +184,7 @@ class DetailView: UIView {
         largeLabel.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
-            largeLabel.topAnchor.constraint(equalTo: mainImage.bottomAnchor, constant: 20),
+            largeLabel.topAnchor.constraint(equalTo: backgroundImage.bottomAnchor, constant: 20),
             largeLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
             largeLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20)
             
