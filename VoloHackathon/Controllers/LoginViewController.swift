@@ -45,6 +45,8 @@ class LoginViewController: UIViewController {
     
     @IBAction func volunterrButtonPressed(_ sender: UIButton) {
         guard let username = usernameTextField.text, !username.isEmpty, let password = passwordTextField.text, !password.isEmpty else {
+            errorLabel.text = "Both textfields must be filled!"
+            errorLabel.textColor = .systemRed
             return
         }
         continueLoginFlow(email: username, password: password)
@@ -52,6 +54,7 @@ class LoginViewController: UIViewController {
     
     @IBAction func lookingButtonPressed(_ sender: UIButton) {
         guard let username = usernameTextField.text, !username.isEmpty, let password = passwordTextField.text, !password.isEmpty else {
+            errorLabel.text = "Both fields must be filled"
             return
         }
         continueLoginFlow(email: username, password: password)
