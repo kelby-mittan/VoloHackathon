@@ -18,6 +18,7 @@ struct Post {
     let startDate: Timestamp
     let endDate: Timestamp
     let status: String
+    let imageURL: String
 }
 
 extension Post {
@@ -32,6 +33,7 @@ extension Post {
         self.startDate = dictionary["startDate"] as? Timestamp ?? Timestamp(date: Date())
         self.endDate = dictionary["endDate"] as? Timestamp ?? Timestamp(date: Date())
         self.status = dictionary["status"] as? String ?? "N/A"
+        self.imageURL = dictionary["imageURL"] as? String ?? "N/A"
     }
 }
 
