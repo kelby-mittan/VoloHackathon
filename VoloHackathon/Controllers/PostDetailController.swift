@@ -9,9 +9,17 @@
 import UIKit
 
 class PostDetailController: UIViewController {
+    
+    private var detailView = DetailView()
+    
+    override func loadView() {
+        view = detailView
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        view.backgroundColor = .white
+        navigationItem.rightBarButtonItem?.image = UIImage(systemName: "square.and.arrow.down")
 
     }
 

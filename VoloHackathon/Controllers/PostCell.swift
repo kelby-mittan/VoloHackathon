@@ -13,7 +13,7 @@ class PostCell: UICollectionViewCell {
     public lazy var postImage: UIImageView = {
         let iv = UIImageView()
         iv.backgroundColor = .gray
-        //iv.image = UIImage(systemName: "mic")
+        iv.image =  UIImage(named: "noimage")
         iv.contentMode = .scaleAspectFill
         iv.clipsToBounds = true
         return iv
