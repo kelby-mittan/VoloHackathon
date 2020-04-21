@@ -150,7 +150,7 @@ class DetailView: UIView {
             backgroundImage.topAnchor.constraint(equalTo: contentView.topAnchor),
             backgroundImage.leadingAnchor.constraint(equalTo: leadingAnchor),
             backgroundImage.trailingAnchor.constraint(equalTo: trailingAnchor),
-            backgroundImage.heightAnchor.constraint(equalTo: heightAnchor, multiplier: 0.4)
+            backgroundImage.heightAnchor.constraint(equalTo: heightAnchor, multiplier: 0.25)
         ])
     }
     
@@ -175,7 +175,7 @@ class DetailView: UIView {
             mainImage.topAnchor.constraint(equalTo: backgroundImage.centerYAnchor, constant: -150),
             mainImage.centerXAnchor.constraint(equalTo: centerXAnchor),
             mainImage.widthAnchor.constraint(equalTo: widthAnchor, multiplier: 0.90),
-            mainImage.heightAnchor.constraint(equalTo: heightAnchor, multiplier: 0.4)
+            mainImage.heightAnchor.constraint(equalTo: heightAnchor, multiplier: 0.25)
         ])
     }
     
