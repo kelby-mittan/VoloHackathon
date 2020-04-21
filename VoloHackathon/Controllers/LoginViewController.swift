@@ -7,6 +7,12 @@
 //
 
 import UIKit
+import FirebaseAuth
+
+enum AccountState {
+    case existingUser
+    case newUser
+}
 
 class LoginViewController: UIViewController {
     
@@ -14,6 +20,8 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var lookingButton: UIButton!
     @IBOutlet weak var usernameTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
+    
+    private var accountState: AccountState = .existingUser
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,9 +41,23 @@ class LoginViewController: UIViewController {
     }
     
     @IBAction func volunterrButtonPressed(_ sender: UIButton) {
+        guard let username = usernameTextField.text, !username.isEmpty, let password = passwordTextField.text, !password.isEmpty else {
+            return
+        }
     }
     
-    @IBAction func looingButtonPressed(_ sender: UIButton) {
+    @IBAction func lookingButtonPressed(_ sender: UIButton) {
+        guard let username = usernameTextField.text, !username.isEmpty, let password = passwordTextField.text, !password.isEmpty else {
+            return
+        }
+    }
+    
+    private func navigateToUserView() {
+        
+    }
+    
+    private func navigateToPostView() {
+        
     }
     
 }
