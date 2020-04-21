@@ -35,37 +35,33 @@ class LoginViewController: UIViewController {
 
     private func configureButtonUI() {
         
-        volunteerButton.layer.cornerRadius = 10
-        volunteerButton.layer.borderWidth = 0.8
-        volunteerButton.layer.borderColor = UIColor.white.cgColor
-        lookingButton.layer.cornerRadius = 10
-        lookingButton.layer.borderWidth = 0.8
-        lookingButton.layer.borderColor = UIColor.white.cgColor
+//        volunteerButton.layer.cornerRadius = 10
+//        volunteerButton.layer.borderWidth = 0.8
+//        volunteerButton.layer.borderColor = UIColor.white.cgColor
+//        lookingButton.layer.cornerRadius = 10
+//        lookingButton.layer.borderWidth = 0.8
+//        lookingButton.layer.borderColor = UIColor.white.cgColor
     }
     
-    @IBAction func volunterrButtonPressed(_ sender: UIButton) {
-        guard let username = usernameTextField.text, !username.isEmpty, let password = passwordTextField.text, !password.isEmpty else {
-            errorLabel.text = "Both textfields must be filled!"
-            errorLabel.textColor = .systemRed
-            return
-        }
-        continueLoginFlow(email: username, password: password)
-    }
+//    @IBAction func volunterrButtonPressed(_ sender: UIButton) {
+//        guard let username = usernameTextField.text, !username.isEmpty, let password = passwordTextField.text, !password.isEmpty else {
+//            errorLabel.text = "Both textfields must be filled!"
+//            errorLabel.textColor = .systemRed
+//            return
+//        }
+//        continueLoginFlow(email: username, password: password)
+//    }
     
-    @IBAction func lookingButtonPressed(_ sender: UIButton) {
-        guard let username = usernameTextField.text, !username.isEmpty, let password = passwordTextField.text, !password.isEmpty else {
-            errorLabel.text = "Both fields must be filled"
-            return
-        }
-        continueLoginFlow(email: username, password: password)
-    }
+//    @IBAction func lookingButtonPressed(_ sender: UIButton) {
+//        guard let username = usernameTextField.text, !username.isEmpty, let password = passwordTextField.text, !password.isEmpty else {
+//            errorLabel.text = "Both fields must be filled"
+//            return
+//        }
+//        continueLoginFlow(email: username, password: password)
+//    }
     
     private func navigateToUserView() {
         UIViewController.showViewController(storyBoardName: "Volunteer", viewControllerId: "VolunteerTabBarController")
-    }
-    
-    private func navigateToPostView() {
-        
     }
     
     private func continueLoginFlow(email: String, password: String) {
@@ -111,5 +107,4 @@ class LoginViewController: UIViewController {
             }
         }
     }
-    
 }

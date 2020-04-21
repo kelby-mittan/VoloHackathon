@@ -23,7 +23,7 @@ class DatabaseService {
     private init() {}
     static let shared = DatabaseService()
     
-    public func createDatabaseUser(authDataResult: AuthDataResult, completion: @escaping (Result<Bool, Error>) -> ()) {
+    public func createDatabaseUser(authDataResult: AuthDataResult, userType: String, completion: @escaping (Result<Bool, Error>) -> ()) {
         
         guard let email = authDataResult.user.email else {
             return
