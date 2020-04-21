@@ -18,6 +18,10 @@
 		02379904244E4B0A00C6DE74 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02379903244E4B0A00C6DE74 /* LoginViewController.swift */; };
 		02379906244E4B7500C6DE74 /* UIViewController+Navigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02379905244E4B7500C6DE74 /* UIViewController+Navigation.swift */; };
 		02379908244E528200C6DE74 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 02379907244E528200C6DE74 /* GoogleService-Info.plist */; };
+		0237990A244E683500C6DE74 /* AuthenticationSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02379909244E683500C6DE74 /* AuthenticationSession.swift */; };
+		0237990F244E6CE000C6DE74 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0237990E244E6CE000C6DE74 /* User.swift */; };
+		02379911244E6D8D00C6DE74 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02379910244E6D8D00C6DE74 /* Post.swift */; };
+		02379913244E83BD00C6DE74 /* DatabaseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02379912244E83BD00C6DE74 /* DatabaseService.swift */; };
 		3D97445F6B970AB53CE6C933 /* Pods_VoloHackathon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C3B9DF9D3C0CF2B69412D62A /* Pods_VoloHackathon.framework */; };
 		AAFB40247320D25FADB5A144 /* Pods_VoloHackathonTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 10101B2C777547EEE3E1D1FE /* Pods_VoloHackathonTests.framework */; };
 		B750A3C1244F4CCA00A2FA91 /* PostDetailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B750A3C0244F4CCA00A2FA91 /* PostDetailController.swift */; };
@@ -56,6 +60,10 @@
 		02379903244E4B0A00C6DE74 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		02379905244E4B7500C6DE74 /* UIViewController+Navigation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Navigation.swift"; sourceTree = "<group>"; };
 		02379907244E528200C6DE74 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		02379909244E683500C6DE74 /* AuthenticationSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationSession.swift; sourceTree = "<group>"; };
+		0237990E244E6CE000C6DE74 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		02379910244E6D8D00C6DE74 /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
+		02379912244E83BD00C6DE74 /* DatabaseService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseService.swift; sourceTree = "<group>"; };
 		10101B2C777547EEE3E1D1FE /* Pods_VoloHackathonTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_VoloHackathonTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4C28F2F4EEA6DC08019A9E44 /* Pods-VoloHackathon.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VoloHackathon.release.xcconfig"; path = "Target Support Files/Pods-VoloHackathon/Pods-VoloHackathon.release.xcconfig"; sourceTree = "<group>"; };
 		AABCD81EA870D3D47914D9F4 /* Pods-VoloHackathon.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VoloHackathon.debug.xcconfig"; path = "Target Support Files/Pods-VoloHackathon/Pods-VoloHackathon.debug.xcconfig"; sourceTree = "<group>"; };
@@ -115,6 +123,7 @@
 		023798D4244E45E900C6DE74 /* VoloHackathon */ = {
 			isa = PBXGroup;
 			children = (
+				0237990B244E6BC000C6DE74 /* Models */,
 				023798F8244E49F200C6DE74 /* Storyboards */,
 				023798FA244E4A3800C6DE74 /* Controllers */,
 				023798FB244E4A5600C6DE74 /* Views */,
@@ -191,8 +200,19 @@
 		023798FC244E4A6500C6DE74 /* Firebase Services */ = {
 			isa = PBXGroup;
 			children = (
+				02379909244E683500C6DE74 /* AuthenticationSession.swift */,
+				02379912244E83BD00C6DE74 /* DatabaseService.swift */,
 			);
 			path = "Firebase Services";
+			sourceTree = "<group>";
+		};
+		0237990B244E6BC000C6DE74 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				0237990E244E6CE000C6DE74 /* User.swift */,
+				02379910244E6D8D00C6DE74 /* Post.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 		84A7E0C0A156B4DD69FD3C80 /* Frameworks */ = {
@@ -396,8 +416,14 @@
 				B7549F8F244E89FD001BC391 /* NotificationsController.swift in Sources */,
 				B750A3C1244F4CCA00A2FA91 /* PostDetailController.swift in Sources */,
 				023798D6244E45E900C6DE74 /* AppDelegate.swift in Sources */,
+				0237990A244E683500C6DE74 /* AuthenticationSession.swift in Sources */,
 				023798D8244E45E900C6DE74 /* SceneDelegate.swift in Sources */,
+
 				B7549F91244E8A97001BC391 /* SavedController.swift in Sources */,
+				02379911244E6D8D00C6DE74 /* Post.swift in Sources */,
+				02379913244E83BD00C6DE74 /* DatabaseService.swift in Sources */,
+				0237990F244E6CE000C6DE74 /* User.swift in Sources */,
+
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
