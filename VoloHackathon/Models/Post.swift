@@ -7,16 +7,32 @@
 //
 
 import Foundation
+import Firebase
 
-struct Post: Codable {
+struct Post {
     let id: String
     let description: String
+    let shortDescription: String
     let location: String
     let category: String
-    let volunteers: [User]
-    let startDate: Date
-    let endDate: Date
+    let startDate: Timestamp
+    let endDate: Timestamp
     let status: String
+}
+
+extension Post {
+    
+    init(_ dictionary: [String: Any]) {
+        
+        self.id = dictionary["id"] as? String ?? "N/A"
+        self.description = dictionary["description"] as? String ?? "N/A"
+        self.shortDescription = dictionary["shortDescription"] as? String ?? "N/A"
+        self.location = dictionary["location"] as? String ?? "N/A"
+        self.category = dictionary["category"] as? String ?? "N/A"
+        self.startDate = dictionary["startDate"] as? Timestamp ?? Timestamp(date: Date())
+        self.endDate = dictionary["endDate"] as? Timestamp ?? Timestamp(date: Date())
+        self.status = dictionary["status"] as? String ?? "N/A"
+    }
 }
 
 /*

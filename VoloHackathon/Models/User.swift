@@ -7,15 +7,15 @@
 //
 
 import Foundation
+import Firebase
 
-struct User: Codable {
+struct User {
     let userId: String
     let name: String
     let location: String
     let imageURL: String
     let userType: String
-    let interests: [Post]
-    let commitments: [Post]
+    let verified: String
 }
 
 extension User {
@@ -27,8 +27,7 @@ extension User {
         self.location = dictionary["location"] as? String ?? "N/A"
         self.imageURL = dictionary["imageURL"] as? String ?? "N/A"
         self.userType = dictionary["userType"] as? String ?? "N/A"
-        self.interests = dictionary["interests"] as? [Post] ?? []
-        self.commitments = dictionary["commitments"] as? [Post] ?? []
+        self.verified = dictionary["verified"] as? String ?? "N/A"
     }
 }
 
