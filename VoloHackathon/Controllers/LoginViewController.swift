@@ -18,15 +18,18 @@ class LoginViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = #colorLiteral(red: 0.9568627477, green: 0.6588235497, blue: 0.5450980663, alpha: 1)
+        configureButtonUI()
     }
     
 
     private func configureButtonUI() {
         
-        volunteerButton.layer.cornerRadius = 60
-        volunteerButton.layer.borderWidth = 1.0
-        lookingButton.layer.cornerRadius = 60
-        lookingButton.layer.borderWidth = 1.0
+        volunteerButton.layer.cornerRadius = 10
+        volunteerButton.layer.borderWidth = 0.8
+        volunteerButton.layer.borderColor = UIColor.white.cgColor
+        lookingButton.layer.cornerRadius = 10
+        lookingButton.layer.borderWidth = 0.8
+        lookingButton.layer.borderColor = UIColor.white.cgColor
     }
     
     @IBAction func volunterrButtonPressed(_ sender: UIButton) {
