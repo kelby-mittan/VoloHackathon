@@ -10,7 +10,7 @@ import Foundation
 import Firebase
 
 struct Post {
-    let id: String
+    let orgId: String
     let description: String
     let shortDescription: String
     let location: String
@@ -19,13 +19,14 @@ struct Post {
     let postDate: Timestamp
     let status: String
     let imageURL: String
+    let postId: String
 }
 
 extension Post {
     
     init(_ dictionary: [String: Any]) {
         
-        self.id = dictionary["id"] as? String ?? "N/A"
+        self.orgId = dictionary["orgId"] as? String ?? "N/A"
         self.description = dictionary["description"] as? String ?? "N/A"
         self.shortDescription = dictionary["shortDescription"] as? String ?? "N/A"
         self.location = dictionary["location"] as? String ?? "N/A"
@@ -34,6 +35,7 @@ extension Post {
         self.postDate = dictionary["postDate"] as? Timestamp ?? Timestamp(date: Date())
         self.status = dictionary["status"] as? String ?? "N/A"
         self.imageURL = dictionary["imageURL"] as? String ?? "N/A"
+        self.postId = dictionary["postId"] as? String ?? "N/A"
     }
 }
 
