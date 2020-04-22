@@ -15,6 +15,12 @@ class SavedController: UIViewController {
     private var posts = [Post]() {
         didSet {
             DispatchQueue.main.async {
+                if self.posts.isEmpty {
+                    self.savedView.collectionView.backgroundView = EmptyView(title: "No Volunteering Saved Yet", message: "Find saved volunteering here. Click on save button on the top left to save.", imageName: "volunteer")
+                } else {
+                    self.savedView.collectionView.backgroundView = nil
+                }
+                
                 self.savedView.collectionView.reloadData()
             }
         }
