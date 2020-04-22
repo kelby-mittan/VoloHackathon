@@ -56,7 +56,8 @@ class ListedUserCell: UITableViewCell {
         addSubview(nameLabel)
         nameLabel.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            nameLabel.trailingAnchor.constraint(equalTo: userImage.trailingAnchor, constant: 10)
+            nameLabel.leadingAnchor.constraint(equalTo: userImage.trailingAnchor, constant: 10),
+            nameLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -8)
         ])
     }
     
