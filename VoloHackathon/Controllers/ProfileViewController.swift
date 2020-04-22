@@ -20,9 +20,15 @@ class ProfileViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        profileView.messageButton.addTarget(self, action: #selector(messageButtonPressed(_:)), for: .touchUpInside)
 
     }
     
+    
+    @objc func messageButtonPressed(_ sender: UIButton) {
+        print("message button pressed")
+        
+    }
 
     
 
