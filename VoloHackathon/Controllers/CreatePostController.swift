@@ -8,6 +8,7 @@
 
 import UIKit
 import Firebase
+import FirebaseAuth
 
 class CreatePostController: UIViewController {
 
@@ -65,13 +66,15 @@ class CreatePostController: UIViewController {
     
     @IBAction func submitButtonPressed(_ sender: UIButton) {
         
+        guard let orgId = Auth.auth().currentUser?.uid else { return }
+        
         guard let titleText = postView.listingTitleTF.text, !titleText.isEmpty, let location = postView.locationTF.text, !location.isEmpty, let date = postView.dateTF.text, !date.isEmpty, !descriptionText.isEmpty else {
             showAlert(title: "Missing Fields", message: "Please enter all required fields")
             return
         }
         print("button pressed")
         
-        let post = Post(id: "1", description: descriptionText, shortDescription: titleText, location: location, category: "", startDate: Timestamp(date: Date()), endDate: Timestamp(date: Date()), status: "unfulfilled", imageURL: "")
+        let post = Post(id: orgId, description: descriptionText, shortDescription: titleText, location: location, category: "", startDate: date, postDate: Timestamp(date: Date()), status: "unfulfilled", imageURL: "")
         
         databaseService.addPost(post: post) { [weak self] (result) in
             switch result {
