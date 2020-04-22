@@ -26,6 +26,7 @@
 		AAFB40247320D25FADB5A144 /* Pods_VoloHackathonTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 10101B2C777547EEE3E1D1FE /* Pods_VoloHackathonTests.framework */; };
 		B750A3C1244F4CCA00A2FA91 /* PostDetailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B750A3C0244F4CCA00A2FA91 /* PostDetailController.swift */; };
 		B750A3C3244F4E0200A2FA91 /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B750A3C2244F4E0200A2FA91 /* DetailView.swift */; };
+		B750A3C9244FE81800A2FA91 /* EmptyUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B750A3C8244FE81800A2FA91 /* EmptyUIView.swift */; };
 		B7549F8B244E874C001BC391 /* VolunteerTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7549F8A244E874C001BC391 /* VolunteerTabBarController.swift */; };
 		B7549F8D244E89D8001BC391 /* VolunteerFeedController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7549F8C244E89D8001BC391 /* VolunteerFeedController.swift */; };
 		B7549F8F244E89FD001BC391 /* NotificationsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7549F8E244E89FD001BC391 /* NotificationsController.swift */; };
@@ -69,6 +70,7 @@
 		AABCD81EA870D3D47914D9F4 /* Pods-VoloHackathon.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VoloHackathon.debug.xcconfig"; path = "Target Support Files/Pods-VoloHackathon/Pods-VoloHackathon.debug.xcconfig"; sourceTree = "<group>"; };
 		B750A3C0244F4CCA00A2FA91 /* PostDetailController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostDetailController.swift; sourceTree = "<group>"; };
 		B750A3C2244F4E0200A2FA91 /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DetailView.swift; path = VoloHackathon/Controllers/DetailView.swift; sourceTree = SOURCE_ROOT; };
+		B750A3C8244FE81800A2FA91 /* EmptyUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = EmptyUIView.swift; path = ../../../../../../../Desktop/EmptyUIView.swift; sourceTree = "<group>"; };
 		B7549F8A244E874C001BC391 /* VolunteerTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VolunteerTabBarController.swift; sourceTree = "<group>"; };
 		B7549F8C244E89D8001BC391 /* VolunteerFeedController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VolunteerFeedController.swift; sourceTree = "<group>"; };
 		B7549F8E244E89FD001BC391 /* NotificationsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsController.swift; sourceTree = "<group>"; };
@@ -191,6 +193,7 @@
 			isa = PBXGroup;
 			children = (
 				B7549F92244E970C001BC391 /* VolunteerView.swift */,
+				B750A3C8244FE81800A2FA91 /* EmptyUIView.swift */,
 				B750A3C2244F4E0200A2FA91 /* DetailView.swift */,
 				B7549F94244E9DF1001BC391 /* PostCell.swift */,
 			);
@@ -418,12 +421,11 @@
 				023798D6244E45E900C6DE74 /* AppDelegate.swift in Sources */,
 				0237990A244E683500C6DE74 /* AuthenticationSession.swift in Sources */,
 				023798D8244E45E900C6DE74 /* SceneDelegate.swift in Sources */,
-
 				B7549F91244E8A97001BC391 /* SavedController.swift in Sources */,
 				02379911244E6D8D00C6DE74 /* Post.swift in Sources */,
 				02379913244E83BD00C6DE74 /* DatabaseService.swift in Sources */,
+				B750A3C9244FE81800A2FA91 /* EmptyUIView.swift in Sources */,
 				0237990F244E6CE000C6DE74 /* User.swift in Sources */,
-
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
