@@ -10,6 +10,9 @@ import UIKit
 
 class CreatePostView: UIView {
     
+    public var orgIVTopAnchor: NSLayoutConstraint?
+
+    
     public lazy var organizationIV: UIImageView = {
         let iv = UIImageView()
         iv.image = UIImage(systemName: "photo")
@@ -94,10 +97,31 @@ class CreatePostView: UIView {
         return pv
     }()
     
+    public lazy var descriptionLabel: UILabel = {
+        let label = UILabel()
+        label.numberOfLines = 1
+        label.font = UIFont.preferredFont(forTextStyle: .headline)
+        //        label.textColor = .white
+        label.text = "Description"
+        return label
+    }()
+    
+    public lazy var descriptionTV: UITextView = {
+        let tv = UITextView()
+        tv.text = "  enter a detailed description of listing"
+        tv.textColor = .placeholderText
+        tv.layer.cornerRadius = 5
+        tv.clipsToBounds = true
+        return tv
+    }()
+    
     public lazy var submitButton: UIButton = {
         let button = UIButton()
-        button.setImage(UIImage(systemName: "book.fill"), for: .normal)
-        button.imageView?.contentMode = .scaleToFill
+        button.setTitle("submit", for: .normal)
+        button.titleLabel?.textColor = .white
+        button.layer.borderWidth = 2
+        button.layer.cornerRadius = 5
+        button.clipsToBounds = true
         return button
     }()
     
@@ -119,6 +143,9 @@ class CreatePostView: UIView {
         setupLocationTFConstraints()
         setupDateLabelConstraints()
         setupDateTFConstraints()
+        setupDescriptionLabelConstraints()
+        setupDescriptionTVConstraints()
+        setupSubmitButtonConstraints()
     }
     
     private func setupImageViewConstraints() {
@@ -132,6 +159,9 @@ class CreatePostView: UIView {
             organizationIV.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor, constant: 0),
             organizationIV.heightAnchor.constraint(equalTo: safeAreaLayoutGuide.heightAnchor, multiplier: 0.27)
         ])
+        
+//        orgIVTopAnchor = organizationIV.topAnchor.constraint(equalTo: topAnchor)
+//        orgIVTopAnchor?.isActive = true
     }
     
     private func setupTitleLabelConstraints() {
@@ -202,4 +232,40 @@ class CreatePostView: UIView {
             dateTF.heightAnchor.constraint(equalToConstant: 34)
         ])
     }
+    
+    private func setupDescriptionLabelConstraints() {
+        addSubview(descriptionLabel)
+        descriptionLabel.translatesAutoresizingMaskIntoConstraints = false
+        
+        NSLayoutConstraint.activate([
+            descriptionLabel.topAnchor.constraint(equalTo: dateTF.bottomAnchor, constant: 10),
+            descriptionLabel.leadingAnchor.constraint(equalTo: dateTF.leadingAnchor),
+            descriptionLabel.trailingAnchor.constraint(equalTo: dateTF.trailingAnchor)
+        ])
+    }
+    
+    private func setupDescriptionTVConstraints() {
+        addSubview(descriptionTV)
+        descriptionTV.translatesAutoresizingMaskIntoConstraints = false
+        
+        NSLayoutConstraint.activate([
+            descriptionTV.topAnchor.constraint(equalTo: descriptionLabel.bottomAnchor, constant: 10),
+            descriptionTV.leadingAnchor.constraint(equalTo: descriptionLabel.leadingAnchor),
+            descriptionTV.trailingAnchor.constraint(equalTo: descriptionLabel.trailingAnchor),
+            descriptionTV.heightAnchor.constraint(equalToConstant: 136)
+        ])
+    }
+    
+    private func setupSubmitButtonConstraints() {
+        addSubview(submitButton)
+        submitButton.translatesAutoresizingMaskIntoConstraints = false
+        
+        NSLayoutConstraint.activate([
+            submitButton.topAnchor.constraint(equalTo: descriptionTV.bottomAnchor, constant: 20),
+            submitButton.centerXAnchor.constraint(equalTo: descriptionTV.centerXAnchor),
+            submitButton.widthAnchor.constraint(equalToConstant: 74),
+            submitButton.heightAnchor.constraint(equalToConstant: 44)
+        ])
+    }
+    
 }

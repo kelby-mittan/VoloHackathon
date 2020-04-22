@@ -27,6 +27,7 @@
 		02379919244FBC7800C6DE74 /* CreatePostController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02379918244FBC7800C6DE74 /* CreatePostController.swift */; };
 		0237991B244FBC9C00C6DE74 /* CreatePostView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0237991A244FBC9C00C6DE74 /* CreatePostView.swift */; };
 		0237991D244FCCDA00C6DE74 /* UITextField+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0237991C244FCCDA00C6DE74 /* UITextField+Extension.swift */; };
+		0237991F24506C6600C6DE74 /* ShowAlert+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0237991E24506C6600C6DE74 /* ShowAlert+Extension.swift */; };
 		3D97445F6B970AB53CE6C933 /* Pods_VoloHackathon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C3B9DF9D3C0CF2B69412D62A /* Pods_VoloHackathon.framework */; };
 		AAFB40247320D25FADB5A144 /* Pods_VoloHackathonTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 10101B2C777547EEE3E1D1FE /* Pods_VoloHackathonTests.framework */; };
 		B750A3C1244F4CCA00A2FA91 /* PostDetailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B750A3C0244F4CCA00A2FA91 /* PostDetailController.swift */; };
@@ -74,6 +75,7 @@
 		02379918244FBC7800C6DE74 /* CreatePostController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatePostController.swift; sourceTree = "<group>"; };
 		0237991A244FBC9C00C6DE74 /* CreatePostView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatePostView.swift; sourceTree = "<group>"; };
 		0237991C244FCCDA00C6DE74 /* UITextField+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField+Extension.swift"; sourceTree = "<group>"; };
+		0237991E24506C6600C6DE74 /* ShowAlert+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ShowAlert+Extension.swift"; sourceTree = "<group>"; };
 		10101B2C777547EEE3E1D1FE /* Pods_VoloHackathonTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_VoloHackathonTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4C28F2F4EEA6DC08019A9E44 /* Pods-VoloHackathon.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VoloHackathon.release.xcconfig"; path = "Target Support Files/Pods-VoloHackathon/Pods-VoloHackathon.release.xcconfig"; sourceTree = "<group>"; };
 		AABCD81EA870D3D47914D9F4 /* Pods-VoloHackathon.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VoloHackathon.debug.xcconfig"; path = "Target Support Files/Pods-VoloHackathon/Pods-VoloHackathon.debug.xcconfig"; sourceTree = "<group>"; };
@@ -181,6 +183,7 @@
 			children = (
 				02379905244E4B7500C6DE74 /* UIViewController+Navigation.swift */,
 				0237991C244FCCDA00C6DE74 /* UITextField+Extension.swift */,
+				0237991E24506C6600C6DE74 /* ShowAlert+Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -428,6 +431,7 @@
 				02379906244E4B7500C6DE74 /* UIViewController+Navigation.swift in Sources */,
 				B7549F93244E970C001BC391 /* VolunteerView.swift in Sources */,
 				02379904244E4B0A00C6DE74 /* LoginViewController.swift in Sources */,
+				0237991F24506C6600C6DE74 /* ShowAlert+Extension.swift in Sources */,
 				B7549F8D244E89D8001BC391 /* VolunteerFeedController.swift in Sources */,
 				B7549F8B244E874C001BC391 /* VolunteerTabBarController.swift in Sources */,
 				0237991D244FCCDA00C6DE74 /* UITextField+Extension.swift in Sources */,
