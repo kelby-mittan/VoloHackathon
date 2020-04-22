@@ -11,6 +11,7 @@ import UIKit
 class UserTableViewController: UIViewController {
     
     private let tableView = UserTableView()
+    public var selectedPost: Post?
     private var listedUsers = [User]() {
         didSet {
             DispatchQueue.main.async {
@@ -41,10 +42,10 @@ class UserTableViewController: UIViewController {
     }
     
     private func getInterestedUsers() {
-        DatabaseService.shared.fetchAllUsers { [weak self] (result) in
+        DatabaseService.shared.fetchVolunteers(post: selectedPost!) { [weak self] (result) in
             switch result {
             case .failure(let error):
-                print("error fetching users: \(error)")
+                print("error fetching volunteers: \(error)")
             case .success(let users):
                 self?.listedUsers = users
             }
