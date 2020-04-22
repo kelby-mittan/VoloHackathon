@@ -24,6 +24,7 @@
 		02379913244E83BD00C6DE74 /* DatabaseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02379912244E83BD00C6DE74 /* DatabaseService.swift */; };
 		3D97445F6B970AB53CE6C933 /* Pods_VoloHackathon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C3B9DF9D3C0CF2B69412D62A /* Pods_VoloHackathon.framework */; };
 		AAFB40247320D25FADB5A144 /* Pods_VoloHackathonTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 10101B2C777547EEE3E1D1FE /* Pods_VoloHackathonTests.framework */; };
+		B745E63B244FEB980009A1D4 /* EmptyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B745E63A244FEB980009A1D4 /* EmptyView.swift */; };
 		B750A3C1244F4CCA00A2FA91 /* PostDetailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B750A3C0244F4CCA00A2FA91 /* PostDetailController.swift */; };
 		B750A3C3244F4E0200A2FA91 /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B750A3C2244F4E0200A2FA91 /* DetailView.swift */; };
 		B7549F8B244E874C001BC391 /* VolunteerTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7549F8A244E874C001BC391 /* VolunteerTabBarController.swift */; };
@@ -70,6 +71,7 @@
 		10101B2C777547EEE3E1D1FE /* Pods_VoloHackathonTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_VoloHackathonTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4C28F2F4EEA6DC08019A9E44 /* Pods-VoloHackathon.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VoloHackathon.release.xcconfig"; path = "Target Support Files/Pods-VoloHackathon/Pods-VoloHackathon.release.xcconfig"; sourceTree = "<group>"; };
 		AABCD81EA870D3D47914D9F4 /* Pods-VoloHackathon.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VoloHackathon.debug.xcconfig"; path = "Target Support Files/Pods-VoloHackathon/Pods-VoloHackathon.debug.xcconfig"; sourceTree = "<group>"; };
+		B745E63A244FEB980009A1D4 /* EmptyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyView.swift; sourceTree = "<group>"; };
 		B750A3C0244F4CCA00A2FA91 /* PostDetailController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostDetailController.swift; sourceTree = "<group>"; };
 		B750A3C2244F4E0200A2FA91 /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DetailView.swift; path = VoloHackathon/Controllers/DetailView.swift; sourceTree = SOURCE_ROOT; };
 		B7549F8A244E874C001BC391 /* VolunteerTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VolunteerTabBarController.swift; sourceTree = "<group>"; };
@@ -219,6 +221,7 @@
 			isa = PBXGroup;
 			children = (
 				0237990E244E6CE000C6DE74 /* User.swift */,
+				B745E63A244FEB980009A1D4 /* EmptyView.swift */,
 				02379910244E6D8D00C6DE74 /* Post.swift */,
 			);
 			path = Models;
@@ -423,6 +426,7 @@
 				B79D52AC244FA71300159461 /* SignUpViewController.swift in Sources */,
 				B7549F8D244E89D8001BC391 /* VolunteerFeedController.swift in Sources */,
 				B7549F8B244E874C001BC391 /* VolunteerTabBarController.swift in Sources */,
+				B745E63B244FEB980009A1D4 /* EmptyView.swift in Sources */,
 				B7549F8F244E89FD001BC391 /* NotificationsController.swift in Sources */,
 				B750A3C1244F4CCA00A2FA91 /* PostDetailController.swift in Sources */,
 				023798D6244E45E900C6DE74 /* AppDelegate.swift in Sources */,
