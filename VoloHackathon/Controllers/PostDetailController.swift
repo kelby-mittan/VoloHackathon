@@ -8,6 +8,7 @@
 
 import UIKit
 import Kingfisher
+import FirebaseAuth
 
 class PostDetailController: UIViewController {
     
@@ -43,22 +44,18 @@ class PostDetailController: UIViewController {
         navigationController?.navigationBar.prefersLargeTitles = false
         
         let saveButton = UIBarButtonItem(image: UIImage(systemName: "square.and.arrow.down"), style: .plain, target: self, action: #selector(saveButtonPressed(_:)))
+        // saveButton.tintColor = .black
         
-        let tempVolunteerButton = UIBarButtonItem(image: UIImage(named: "hand.heart"), style: .plain, target: self, action: #selector(volunteerButtonPressed(_:)))
-        tempVolunteerButton.tintColor = .black
-        saveButton.tintColor = .black
         
-//        navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "square.and.arrow.down"), style: .plain, target: self, action: #selector(saveButtonPressed(_:)))
-//        navigationItem.rightBarButtonItem?.tintColor = .black
         
-        navigationItem.rightBarButtonItems = [saveButton, tempVolunteerButton]
+        navigationItem.rightBarButtonItems = [saveButton]
         
         
     }
     
     @objc func saveButtonPressed(_ sender: UIBarButtonItem) {
         // this will save this post to the users "saved posts" collection for a specific user
-                
+        
         DatabaseService.shared.addToInterests(post: post) { (result) in
             switch result {
             case .failure(let error):
@@ -74,23 +71,37 @@ class PostDetailController: UIViewController {
     @objc func volunteerButtonPressed(_ sender: UIBarButtonItem) {    //(_ sender: UIButton) doing this for the sake of testing
         print("I want to volunteer")
         
-        
         // add current user to a list of potential volunteers of a specific post
         
         // addToCommittments -> shouldnt this take in a user not a post?
         
-        // should present an alert controller "We'll let \(post.orgName) know youre interested" "Ok" , "No, I change my mind"
-        
-         //       DatabaseService.shared.addToCommittments(post: post) { (result) in
-        //                    switch result {
-        //                    case .failure(let error):
-        //                        print("error saving post to interested: \(error)")
-        //                    case .success: //(let isSaved):
-        //                        print("\(self.post.category) should have been saved to the users saved")
-        //                        // present an alert telling them it was added to saved - maybe this should only happen once ?
-        //
-        //                    }
-        //                }
+        showOptionsAlert(title: "Ready to Help?", message: "We'll let them know youre interested", yesText: "Ok", noText: "Not yet") { (alertAction) in
+            
+            guard let user = Auth.auth().currentUser else { return }
+            
+            
+            DatabaseService.shared.fetchUserInfo(userId: user.uid) { (result) in
+                switch result {
+                case .failure(let error):
+                    print("\(error) getting userInfo")
+                case .success(let volunteers):
+                    guard let volunteer = volunteers.first else {
+                        print("no user - post detail VC")
+                        return
+                    }
+                    DatabaseService.shared.addVolunteer(post: self.post, volunteer: volunteer) { (result) in
+                        switch result {
+                        case .failure(let error):
+                            print("error adding volunteer to post list \(error.localizedDescription)")
+                        case .success:
+                            print("successfully added volunteer")
+                        }
+                    }
+                    
+                }
+            }
+            
+        }
         
     }
     
