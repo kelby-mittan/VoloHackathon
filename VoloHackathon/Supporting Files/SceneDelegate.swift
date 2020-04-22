@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import FirebaseAuth
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
@@ -21,8 +22,28 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         window = UIWindow(frame: UIScreen.main.bounds)
         window?.windowScene = windowScene
         
-        //UIViewController.showViewController(storyBoardName: "Login", viewControllerId: "LoginViewController")
-        UIViewController.showViewController(storyBoardName: "Volunteer", viewControllerId: "VolunteerTabBarController")
+//        if let user = Auth.auth().currentUser {
+//            DatabaseService.shared.fetchUserInfo(userId: user.uid) { (result) in
+//                switch result {
+//                case .failure(let error):
+//                    print("\(error) getting userInfo")
+//                case .success(let user):
+//                    DispatchQueue.main.async {
+//                        if user.first?.userType == "Volunteer" {
+//                            UIViewController.showViewController(storyBoardName: "Volunteer", viewControllerId: "VolunteerTabBarController")
+//                        } else if user.first?.userType == "Organization" {
+//                            UIViewController.showViewController(storyBoardName: "Organization", viewControllerId: "OrganizationTabBarController")
+//                        }
+//                    }
+//                }
+//            }
+//        } else {
+//            UIViewController.showViewController(storyBoardName: "Login", viewControllerId: "LoginViewController")
+//        }
+        
+        UIViewController.showViewController(storyBoardName: "Login", viewControllerId: "LoginViewController")
+//        UIViewController.showViewController(storyBoardName: "Volunteer", viewControllerId: "VolunteerTabBarController")
+//        UIViewController.showViewController(storyBoardName: "Login", viewControllerId: "LoginViewController")
         window?.makeKeyAndVisible()
     }
 
