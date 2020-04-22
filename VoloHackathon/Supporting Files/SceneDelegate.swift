@@ -22,7 +22,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         window?.windowScene = windowScene
         
         //UIViewController.showViewController(storyBoardName: "Login", viewControllerId: "LoginViewController")
-        UIViewController.showViewController(storyBoardName: "Volunteer", viewControllerId: "VolunteerTabBarController")
+//        UIViewController.showViewController(storyBoardName: "Volunteer", viewControllerId: "VolunteerTabBarController")
+        UIViewController.showViewController(storyBoardName: "Login", viewControllerId: "LoginViewController")
         window?.makeKeyAndVisible()
     }
 

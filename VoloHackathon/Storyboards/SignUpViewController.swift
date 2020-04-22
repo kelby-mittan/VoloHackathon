@@ -17,9 +17,10 @@ class SignUpViewController: UIViewController {
     @IBOutlet weak var postButton: UIButton!
     @IBOutlet weak var errorLabel: UILabel!
     
-    public var userType = ["Volunteer","Poster"]
+    public var userType = ["Volunteer","Post"]
     private var accountState: AccountState = .newUser
     private var authentication = AuthenticationSession()
+    private var isSelected: Bool = false
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,15 +28,20 @@ class SignUpViewController: UIViewController {
     }
     
     private func configureButtons() {
-        
         volunteerButton.layer.cornerRadius = 10
         postButton.layer.cornerRadius = 10
     }
     
     @IBAction func volunteerButtonPressed(_ sender: UIButton) {
+        volunteerButton.layer.borderColor = UIColor.black.cgColor
+        volunteerButton.layer.borderWidth = 1.5
+        let newUserType = userType.first
     }
     
     @IBAction func postButtonPressed(_ sender: UIButton) {
+        postButton.layer.borderColor = UIColor.black.cgColor
+        postButton.layer.borderWidth = 1.5
+        let newUserType = userType.last
     }
     
     @IBAction func signUpButtonPressed(_ sender: UIButton) {
@@ -44,6 +50,7 @@ class SignUpViewController: UIViewController {
             errorLabel.textColor = .systemRed
             return
         }
+        continueSignUpFlow(username: username, password: password)
     }
     
     private func continueSignUpFlow(username: String, password: String) {
