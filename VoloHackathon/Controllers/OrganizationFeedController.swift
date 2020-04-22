@@ -111,6 +111,12 @@ extension OrganizationFeedController: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
+        let post = posts[indexPath.row]
+
+        let TVController = UserTableViewController()
         
+        TVController.selectedPost = post
+        
+        navigationController?.pushViewController(TVController, animated: true)
     }
 }
