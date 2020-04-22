@@ -80,7 +80,7 @@ class DatabaseService {
         
         guard let user = Auth.auth().currentUser, let email = user.email else { return }
         
-        db.collection(DatabaseService.posts).document(user.uid).setData(["id":post.id, "description" : post.description, "shortDescription" : post.shortDescription, "location": post.location, "category": post.category, "startDate": post.startDate, "postDate": Timestamp(date: Date()), "status": post.status, "email": email]) { (error) in
+        db.collection(DatabaseService.posts).document(UUID().uuidString).setData(["id":post.id, "description" : post.description, "shortDescription" : post.shortDescription, "location": post.location, "category": post.category, "startDate": post.startDate, "postDate": Timestamp(date: Date()), "status": post.status, "email": email]) { (error) in
             
             if let error = error {
                 completion(.failure(error))
@@ -178,4 +178,14 @@ class DatabaseService {
         }
     }
     
+    public func fetchVolunteers(post: Post, completion: @escaping (Result<[User], Error>) -> ()) {
+      db.collection(DatabaseService.posts).document(post.id).collection(DatabaseService.volunteers).getDocuments { (snapshot, error) in
+        if let error = error {
+          completion(.failure(error))
+        } else if let snapshot = snapshot {
+          let users = snapshot.documents.compactMap { User($0.data())}
+          completion(.success(users))
+        }
+      }
+    }
 }
