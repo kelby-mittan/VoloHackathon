@@ -127,11 +127,11 @@ class DatabaseService {
      let verified: String
      */
     
-    public func addVolunteer(volunteer: User, completion: @escaping (Result<Bool, Error>) -> ()) {
+    public func addVolunteer(post: Post, volunteer: User, completion: @escaping (Result<Bool, Error>) -> ()) {
         
         guard let user = Auth.auth().currentUser, let email = user.email else { return }
         
-        db.collection(DatabaseService.posts).document(user.uid).collection(DatabaseService.volunteers).document(volunteer.userId).setData(["userId":volunteer.userId, "name" : volunteer.name, "location" : volunteer.location, "imageURL": volunteer.imageURL, "userType": volunteer.userType, "verified": volunteer.verified, "email": email]) { (error) in
+        db.collection(DatabaseService.posts).document(post.id).collection(DatabaseService.volunteers).document(volunteer.userId).setData(["userId":volunteer.userId, "name" : volunteer.name, "location" : volunteer.location, "imageURL": volunteer.imageURL, "userType": volunteer.userType, "verified": volunteer.verified, "email": email]) { (error) in
             
             if let error = error {
                 completion(.failure(error))
@@ -140,6 +140,7 @@ class DatabaseService {
             }
         }
     }
+
     
     public func fetchAllPosts(completion: @escaping (Result<[Post], Error>) -> ()) {
         
