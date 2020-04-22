@@ -48,7 +48,7 @@ class VolunteerFeedController: UIViewController {
         DatabaseService.shared.fetchAllPosts { [weak self] (result) in
             switch result {
             case .failure(let error):
-                print("error getting faved events: \(error.localizedDescription)")
+                print("error getting volunteer post: \(error.localizedDescription)")
             case .success(let posts):
                 self?.posts = posts
             }

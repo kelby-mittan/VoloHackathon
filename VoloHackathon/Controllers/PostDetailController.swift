@@ -26,14 +26,14 @@ class PostDetailController: UIViewController {
     override func loadView() {
         view = detailView
     }
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
         configureNavBar()
         updateUI()
         print(post.category)
-
+        
     }
     
     
@@ -47,16 +47,14 @@ class PostDetailController: UIViewController {
     @objc func saveButtonPressed(sender: UIBarButtonItem) {
         print("saved")
         // this will save this post to the users "saved posts" collection for a specific user
-        
-        // useing db service method -> addToInterests
-        
-        DatabaseService.shared.addToCommittments(post: post) { (result) in
+                
+        DatabaseService.shared.addToInterests(post: post) { (result) in
             switch result {
             case .failure(let error):
                 print("error saving post to interested: \(error)")
             case .success: //(let isSaved):
                 print("\(self.post.category) should have been saved to the users saved")
-                // present an alert telling them it was added to saved - maybe this should only happen once ? 
+                // present an alert telling them it was added to saved - maybe this should only happen once ?
                 
             }
         }
@@ -69,6 +67,17 @@ class PostDetailController: UIViewController {
         
         // should present an alert controller "We'll let \(post.orgName) know youre interested" "Ok" , "No, I change my mind"
         
+         //       DatabaseService.shared.addToCommittments(post: post) { (result) in
+        //                    switch result {
+        //                    case .failure(let error):
+        //                        print("error saving post to interested: \(error)")
+        //                    case .success: //(let isSaved):
+        //                        print("\(self.post.category) should have been saved to the users saved")
+        //                        // present an alert telling them it was added to saved - maybe this should only happen once ?
+        //
+        //                    }
+        //                }
+        
     }
     
     private func updateUI() {
@@ -79,5 +88,5 @@ class PostDetailController: UIViewController {
         detailView.smallLabel2.text = post.description
         
     }
-
+    
 }
