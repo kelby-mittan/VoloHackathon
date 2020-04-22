@@ -19,6 +19,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
         guard let windowScene = (scene as? UIWindowScene) else { return }
         window = UIWindow(frame: UIScreen.main.bounds)
+        window?.tintColor = #colorLiteral(red: 0.9675597548, green: 0.4630349874, blue: 0.4231805205, alpha: 1)
         window?.windowScene = windowScene
         
 //        UIViewController.showViewController(storyBoardName: "Login", viewControllerId: "LoginViewController")
