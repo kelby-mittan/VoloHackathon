@@ -84,9 +84,8 @@ extension VolunteerFeedController: UICollectionViewDelegateFlowLayout {
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        
-        let detailVC = PostDetailController()
-        // should pass a post 
+        let post = posts[indexPath.row]
+        let detailVC = PostDetailController(post)
         navigationController?.pushViewController(detailVC, animated: true)
         
     }

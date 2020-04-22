@@ -83,6 +83,7 @@ class DetailView: UIView {
         let button = UIButton()
         button.setTitle("I Want to Help!", for: .normal)
         button.backgroundColor = #colorLiteral(red: 0.9568627477, green: 0.6588235497, blue: 0.5450980663, alpha: 1)
+        button.layer.cornerRadius = 5
         return button
     }()
     
@@ -172,7 +173,7 @@ class DetailView: UIView {
         mainImage.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
-            mainImage.topAnchor.constraint(equalTo: backgroundImage.centerYAnchor, constant: -150),
+            mainImage.topAnchor.constraint(equalTo: backgroundImage.centerYAnchor, constant: -90),
             mainImage.centerXAnchor.constraint(equalTo: centerXAnchor),
             mainImage.widthAnchor.constraint(equalTo: widthAnchor, multiplier: 0.90),
             mainImage.heightAnchor.constraint(equalTo: heightAnchor, multiplier: 0.25)
@@ -184,7 +185,7 @@ class DetailView: UIView {
         largeLabel.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
-            largeLabel.topAnchor.constraint(equalTo: backgroundImage.bottomAnchor, constant: 20),
+            largeLabel.topAnchor.constraint(equalTo: mainImage.bottomAnchor, constant: 20),
             largeLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
             largeLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20)
             
