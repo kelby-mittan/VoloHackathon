@@ -12,6 +12,8 @@ class ProfileViewController: UIViewController {
     
     private var profileView = ProfileView()
     
+    public var volunteer: User?
+    
     override func loadView() {
         view = profileView
     }
