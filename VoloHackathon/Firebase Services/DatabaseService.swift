@@ -80,7 +80,7 @@ class DatabaseService {
         
         guard let user = Auth.auth().currentUser, let email = user.email else { return }
         
-        db.collection(DatabaseService.posts).document(user.uid).setData(["id":post.id, "description" : post.description, "shortDescription" : post.shortDescription, "location": post.location, "category": post.category, "startDate": Timestamp(date: Date()), "endDate": Timestamp(date: Date()), "status": post.status, "email": email]) { (error) in
+        db.collection(DatabaseService.posts).document(user.uid).setData(["id":post.id, "description" : post.description, "shortDescription" : post.shortDescription, "location": post.location, "category": post.category, "startDate": post.startDate, "postDate": Timestamp(date: Date()), "status": post.status, "email": email]) { (error) in
             
             if let error = error {
                 completion(.failure(error))
@@ -94,7 +94,7 @@ class DatabaseService {
         
         guard let user = Auth.auth().currentUser, let email = user.email else { return }
         
-        db.collection(DatabaseService.users).document(user.uid).collection(DatabaseService.interestedIn).document(post.id).setData(["id":post.id, "description" : post.description, "shortDescription" : post.shortDescription, "location": post.location, "category": post.category, "startDate": Timestamp(date: Date()), "endDate": Timestamp(date: Date()), "status": post.status, "email": email]) { (error) in
+        db.collection(DatabaseService.users).document(user.uid).collection(DatabaseService.interestedIn).document(post.id).setData(["id":post.id, "description" : post.description, "shortDescription" : post.shortDescription, "location": post.location, "category": post.category, "startDate": post.startDate, "postDate": Timestamp(date: Date()), "status": post.status, "email": email]) { (error) in
             
             if let error = error {
                 completion(.failure(error))
@@ -108,7 +108,7 @@ class DatabaseService {
         
         guard let user = Auth.auth().currentUser, let email = user.email else { return }
         
-        db.collection(DatabaseService.users).document(user.uid).collection(DatabaseService.committedTo).document(post.id).setData(["id":post.id, "description" : post.description, "shortDescription" : post.shortDescription, "location": post.location, "category": post.category, "startDate": Timestamp(date: Date()), "endDate": Timestamp(date: Date()), "status": post.status, "email": email]) { (error) in
+        db.collection(DatabaseService.users).document(user.uid).collection(DatabaseService.committedTo).document(post.id).setData(["id":post.id, "description" : post.description, "shortDescription" : post.shortDescription, "location": post.location, "category": post.category, "startDate": post.startDate, "postDate": Timestamp(date: Date()), "status": post.status, "email": email]) { (error) in
             
             if let error = error {
                 completion(.failure(error))
@@ -148,7 +148,7 @@ class DatabaseService {
                 completion(.failure(error))
             } else if let snapshot = snapshot {
                 let posts = snapshot.documents.compactMap { Post($0.data()) }
-                completion(.success(posts.sorted{$0.endDate.seconds > $1.endDate.seconds}))
+                completion(.success(posts.sorted{$0.postDate.seconds > $1.postDate.seconds}))
             }
         }
     }
@@ -173,7 +173,7 @@ class DatabaseService {
                 completion(.failure(error))
             } else if let snapshot = snapshot {
                 let posts = snapshot.documents.compactMap { Post($0.data()) }
-                completion(.success(posts.sorted{$0.endDate.seconds > $1.endDate.seconds}))
+                completion(.success(posts.sorted{$0.postDate.seconds > $1.postDate.seconds}))
             }
         }
     }

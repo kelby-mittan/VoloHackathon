@@ -15,8 +15,8 @@ struct Post {
     let shortDescription: String
     let location: String
     let category: String
-    let startDate: Timestamp
-    let endDate: Timestamp
+    let startDate: String
+    let postDate: Timestamp
     let status: String
     let imageURL: String
 }
@@ -30,8 +30,8 @@ extension Post {
         self.shortDescription = dictionary["shortDescription"] as? String ?? "N/A"
         self.location = dictionary["location"] as? String ?? "N/A"
         self.category = dictionary["category"] as? String ?? "N/A"
-        self.startDate = dictionary["startDate"] as? Timestamp ?? Timestamp(date: Date())
-        self.endDate = dictionary["endDate"] as? Timestamp ?? Timestamp(date: Date())
+        self.startDate = dictionary["startDate"] as? String ?? "N/A"
+        self.postDate = dictionary["postDate"] as? Timestamp ?? Timestamp(date: Date())
         self.status = dictionary["status"] as? String ?? "N/A"
         self.imageURL = dictionary["imageURL"] as? String ?? "N/A"
     }
