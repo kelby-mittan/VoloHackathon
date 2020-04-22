@@ -121,6 +121,7 @@ class CreatePostView: UIView {
         button.titleLabel?.textColor = .white
         button.layer.borderWidth = 2
         button.layer.cornerRadius = 5
+        button.layer.borderColor = UIColor.white.cgColor
         button.clipsToBounds = true
         return button
     }()
@@ -156,8 +157,8 @@ class CreatePostView: UIView {
         NSLayoutConstraint.activate([
             organizationIV.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 0),
             organizationIV.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor, constant: 0),
-            organizationIV.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor, constant: 0),
-            organizationIV.heightAnchor.constraint(equalTo: safeAreaLayoutGuide.heightAnchor, multiplier: 0.27)
+            organizationIV.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor, constant: 0)//,
+//            organizationIV.heightAnchor.constraint(equalTo: safeAreaLayoutGuide.heightAnchor, multiplier: 0.27)
         ])
         
 //        orgIVTopAnchor = organizationIV.topAnchor.constraint(equalTo: topAnchor)
@@ -252,7 +253,7 @@ class CreatePostView: UIView {
             descriptionTV.topAnchor.constraint(equalTo: descriptionLabel.bottomAnchor, constant: 10),
             descriptionTV.leadingAnchor.constraint(equalTo: descriptionLabel.leadingAnchor),
             descriptionTV.trailingAnchor.constraint(equalTo: descriptionLabel.trailingAnchor),
-            descriptionTV.heightAnchor.constraint(equalToConstant: 136)
+            descriptionTV.heightAnchor.constraint(equalToConstant: 126)
         ])
     }
     

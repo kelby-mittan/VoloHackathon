@@ -43,6 +43,9 @@
 		B7549F95244E9DF1001BC391 /* PostCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7549F94244E9DF1001BC391 /* PostCell.swift */; };
 		B79D52AC244FA71300159461 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B79D52AB244FA71300159461 /* SignUpViewController.swift */; };
 		B7A901582450728100C115E9 /* ToggleButtonClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7A901572450728100C115E9 /* ToggleButtonClass.swift */; };
+		B7A9015A2450CC3E00C115E9 /* UserTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7A901592450CC3E00C115E9 /* UserTableViewController.swift */; };
+		B7A9015C2450CC8800C115E9 /* UserTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7A9015B2450CC8800C115E9 /* UserTableView.swift */; };
+		B7A9015E2450CF4000C115E9 /* ListedUserCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7A9015D2450CF4000C115E9 /* ListedUserCell.swift */; };
 		B7B31D74244FC4F10071377F /* ClassSegue.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7B31D73244FC4F10071377F /* ClassSegue.swift */; };
 /* End PBXBuildFile section */
 
@@ -98,6 +101,9 @@
 		B7549F94244E9DF1001BC391 /* PostCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PostCell.swift; path = VoloHackathon/Controllers/PostCell.swift; sourceTree = SOURCE_ROOT; };
 		B79D52AB244FA71300159461 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SignUpViewController.swift; path = VoloHackathon/Storyboards/SignUpViewController.swift; sourceTree = SOURCE_ROOT; };
 		B7A901572450728100C115E9 /* ToggleButtonClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToggleButtonClass.swift; sourceTree = "<group>"; };
+		B7A901592450CC3E00C115E9 /* UserTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserTableViewController.swift; sourceTree = "<group>"; };
+		B7A9015B2450CC8800C115E9 /* UserTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserTableView.swift; sourceTree = "<group>"; };
+		B7A9015D2450CF4000C115E9 /* ListedUserCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListedUserCell.swift; sourceTree = "<group>"; };
 		B7B31D73244FC4F10071377F /* ClassSegue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClassSegue.swift; sourceTree = "<group>"; };
 		BBDFD53CE3D03C5988890656 /* Pods-VoloHackathonTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VoloHackathonTests.release.xcconfig"; path = "Target Support Files/Pods-VoloHackathonTests/Pods-VoloHackathonTests.release.xcconfig"; sourceTree = "<group>"; };
 		C3B9DF9D3C0CF2B69412D62A /* Pods_VoloHackathon.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_VoloHackathon.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -215,7 +221,11 @@
 				02379914244FA3F600C6DE74 /* OrganizationTabBarController.swift */,
 				02379916244FA43000C6DE74 /* OrganizationFeedController.swift */,
 				02379918244FBC7800C6DE74 /* CreatePostController.swift */,
+
 				B745E63C2450E03B0009A1D4 /* ProfileViewController.swift */,
+
+				B7A901592450CC3E00C115E9 /* UserTableViewController.swift */,
+
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -228,6 +238,8 @@
 				B750A3C2244F4E0200A2FA91 /* DetailView.swift */,
 				B7549F94244E9DF1001BC391 /* PostCell.swift */,
 				0237991A244FBC9C00C6DE74 /* CreatePostView.swift */,
+				B7A9015B2450CC8800C115E9 /* UserTableView.swift */,
+				B7A9015D2450CF4000C115E9 /* ListedUserCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -443,6 +455,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0237991B244FBC9C00C6DE74 /* CreatePostView.swift in Sources */,
+				B7A9015A2450CC3E00C115E9 /* UserTableViewController.swift in Sources */,
 				B7549F95244E9DF1001BC391 /* PostCell.swift in Sources */,
 				02379915244FA3F600C6DE74 /* OrganizationTabBarController.swift in Sources */,
 				B750A3C3244F4E0200A2FA91 /* DetailView.swift in Sources */,
@@ -467,7 +480,9 @@
 				B7549F91244E8A97001BC391 /* SavedController.swift in Sources */,
 				02379911244E6D8D00C6DE74 /* Post.swift in Sources */,
 				02379913244E83BD00C6DE74 /* DatabaseService.swift in Sources */,
+				B7A9015C2450CC8800C115E9 /* UserTableView.swift in Sources */,
 				B7A901582450728100C115E9 /* ToggleButtonClass.swift in Sources */,
+				B7A9015E2450CF4000C115E9 /* ListedUserCell.swift in Sources */,
 				0237990F244E6CE000C6DE74 /* User.swift in Sources */,
 				02379919244FBC7800C6DE74 /* CreatePostController.swift in Sources */,
 			);

@@ -179,4 +179,14 @@ class DatabaseService {
         }
     }
     
+    public func fetchVolunteers(post: Post, completion: @escaping (Result<[User], Error>) -> ()) {
+      db.collection(DatabaseService.posts).document(post.id).collection(DatabaseService.volunteers).getDocuments { (snapshot, error) in
+        if let error = error {
+          completion(.failure(error))
+        } else if let snapshot = snapshot {
+          let users = snapshot.documents.compactMap { User($0.data())}
+          completion(.success(users))
+        }
+      }
+    }
 }
