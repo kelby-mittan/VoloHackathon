@@ -28,7 +28,7 @@ class DatabaseService {
         guard let email = authDataResult.user.email else {
             return
         }
-        db.collection(DatabaseService.users).document(authDataResult.user.uid).setData(["email" : email, "createdData": Timestamp(date: Date()), "userId": authDataResult.user.uid]) { (error) in
+        db.collection(DatabaseService.users).document(authDataResult.user.uid).setData(["email" : email, "createdData": Timestamp(date: Date()), "userId": authDataResult.user.uid, "userType": userType]) { (error) in
             
             if let error = error {
                 completion(.failure(error))
