@@ -77,9 +77,6 @@ extension OrganizationFeedController: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
-        let detailVC = PostDetailController()
-        // should pass a post
-        navigationController?.pushViewController(detailVC, animated: true)
         
     }
 }
