@@ -7,7 +7,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Saved-->
+        <!--Saved Controller-->
         <scene sceneID="zcD-2R-XRT">
             <objects>
                 <viewController storyboardIdentifier="SavedController" id="up7-hM-ANN" customClass="SavedController" customModule="VoloHackathon" customModuleProvider="target" sceneMemberID="viewController">
@@ -17,11 +17,11 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="M9o-U2-ge4"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Saved" image="heart" catalog="system" id="4Zr-pI-Nty"/>
+                    <navigationItem key="navigationItem" id="pag-qH-fcI"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5ly-Sz-06d" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-80" y="137"/>
+            <point key="canvasLocation" x="828.98550724637687" y="136.60714285714286"/>
         </scene>
         <!--Notifications-->
         <scene sceneID="ZM6-nR-agc">
@@ -66,7 +66,7 @@
                     </tabBar>
                     <connections>
                         <segue destination="zFV-VU-9oH" kind="relationship" relationship="viewControllers" id="Y3l-Kd-8fN"/>
-                        <segue destination="up7-hM-ANN" kind="relationship" relationship="viewControllers" id="SJq-JW-Bc2"/>
+                        <segue destination="viZ-N2-tHY" kind="relationship" relationship="viewControllers" id="SJq-JW-Bc2"/>
                         <segue destination="mbu-eC-ina" kind="relationship" relationship="viewControllers" id="mub-Fi-A3o"/>
                     </connections>
                 </tabBarController>
@@ -92,6 +92,25 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jsk-0f-nOz" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-81.159420289855078" y="-521.65178571428567"/>
+        </scene>
+        <!--Saved-->
+        <scene sceneID="aBG-ED-jBl">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="viZ-N2-tHY" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Saved" image="heart" catalog="system" id="4Zr-pI-Nty"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="RcG-YR-iKi">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="up7-hM-ANN" kind="relationship" relationship="rootViewController" id="nuq-eE-e0l"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Iq2-ze-Kql" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-81.159420289855078" y="136.60714285714286"/>
         </scene>
     </scenes>
     <resources>
