@@ -10,7 +10,7 @@ import UIKit
 
 class UserTableView: UIView {
     
-    private lazy var tableView: UITableView = {
+    public lazy var tableView: UITableView = {
         let table = UITableView()
         return table
     }()
