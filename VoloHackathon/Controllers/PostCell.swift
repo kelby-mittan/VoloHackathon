@@ -10,7 +10,7 @@ import UIKit
 import Kingfisher
 
 class PostCell: UICollectionViewCell {
-
+    
     public lazy var postImage: UIImageView = {
         let iv = UIImageView()
         iv.backgroundColor = .gray
@@ -21,13 +21,15 @@ class PostCell: UICollectionViewCell {
     }()
     
     public lazy var shortDescriptionLabel: UILabel = {
-           let label = UILabel()
-           label.text = "Short Description"
-           return label
-       }()
+        let label = UILabel()
+        label.font = UIFont.monospacedDigitSystemFont(ofSize: 17, weight: .bold)
+        label.text = "Short Description"
+        return label
+    }()
     
     public lazy var orgNameLabel: UILabel = {
         let label = UILabel()
+        label.font = UIFont.monospacedDigitSystemFont(ofSize: 15, weight: .regular)
         label.text = "Organization Name"
         label.numberOfLines = 0
         return label
@@ -44,6 +46,7 @@ class PostCell: UICollectionViewCell {
     
     public lazy var dateLabel: UILabel = {
         let label = UILabel()
+        label.font = UIFont.monospacedDigitSystemFont(ofSize: 15, weight: .regular)
         label.text = "Date"
         return label
     }()
@@ -108,11 +111,11 @@ class PostCell: UICollectionViewCell {
             verifiedSymbol.topAnchor.constraint(equalTo: shortDescriptionLabel.bottomAnchor, constant: 8),
             verifiedSymbol.heightAnchor.constraint(equalToConstant: 20),
             verifiedSymbol.widthAnchor.constraint(equalToConstant: 20)
-           
+            
         ])
     }
     
-   
+    
     
     private func setUpOrganizationNameLabel() {
         addSubview(orgNameLabel)
@@ -160,5 +163,5 @@ class PostCell: UICollectionViewCell {
         postImage.kf.setImage(with: URL(string: post.imageURL))
         
     }
-
+    
 }

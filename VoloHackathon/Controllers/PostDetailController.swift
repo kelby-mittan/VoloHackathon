@@ -47,10 +47,28 @@ class PostDetailController: UIViewController {
     @objc func saveButtonPressed(sender: UIBarButtonItem) {
         print("saved")
         // this will save this post to the users "saved posts" collection for a specific user
+        
+        // useing db service method -> addToInterests
+        
+        DatabaseService.shared.addToCommittments(post: post) { (result) in
+            switch result {
+            case .failure(let error):
+                print("error saving post to interested: \(error)")
+            case .success: //(let isSaved):
+                print("\(self.post.category) should have been saved to the users saved")
+                // present an alert telling them it was added to saved - maybe this should only happen once ? 
+                
+            }
+        }
     }
     
     @objc func volunteerButtonPressed(sender: UIButton) {
-        // add current user to a list of potential volunteers of a specific post 
+        // add current user to a list of potential volunteers of a specific post
+        
+        // addToCommittments -> shouldnt this take in a user not a post?
+        
+        // should present an alert controller "We'll let \(post.orgName) know youre interested" "Ok" , "No, I change my mind"
+        
     }
     
     private func updateUI() {
