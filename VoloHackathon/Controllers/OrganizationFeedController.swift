@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import FirebaseAuth
+import Firebase
 
 class OrganizationFeedController: UIViewController {
     
@@ -17,6 +19,18 @@ class OrganizationFeedController: UIViewController {
     override func loadView() {
         view = volunteerFeedView
     }
+    
+    private var posts = [Post]() {
+        didSet {
+            DispatchQueue.main.async {
+                self.volunteerFeedView.collectionView.reloadData()
+            }
+        }
+    }
+    
+    var orgUser: User?
+    
+    let orgId = Auth.auth().currentUser?.uid
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,7 +43,7 @@ class OrganizationFeedController: UIViewController {
         
         configureCollectionView()
         
-        
+        getPosts()
     }
     
     private func configureCollectionView() {
@@ -40,28 +54,48 @@ class OrganizationFeedController: UIViewController {
         
     }
     
+    private func getPosts() {
+        DatabaseService.shared.fetchAllPosts { [weak self] (result) in
+            switch result {
+            case .failure(let error):
+                print("error getting volunteer post: \(error.localizedDescription)")
+            case .success(let posts):
+                self?.posts = posts.filter { $0.id == self?.orgId }
+            }
+        }
+    }
+    
     @objc func addPostPressed(_ sender: UIBarButtonItem) {
         
+        guard let user = Auth.auth().currentUser else { return }
         
-        guard let createPostVC = CreatePostController(organization: User(userId: "", name: "kelby", location: "here", imageURL: "", userType: "", verified: "")) else { return }
-        
-        navigationController?.pushViewController(createPostVC, animated: true)
+        DatabaseService.shared.fetchUserInfo(userId: user.uid) { [weak self] (result) in
+            switch result {
+            case .failure(let error):
+                print("\(error) getting userInfo")
+            case .success(let users):
+                guard let user = users.first, let createPostVC = CreatePostController(organization: user) else { return }
+                
+                self?.navigationController?.pushViewController(createPostVC, animated: true)
+            }
+        }
+
     }
     
 }
 
 extension OrganizationFeedController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 3
+        return posts.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "orgPostCell", for: indexPath) as? PostCell else {
             fatalError("could not down cast to post cell")
         }
-        
+        let post = posts[indexPath.row]
         cell.backgroundColor = .white
-        
+        cell.configureCell(post)
         return cell
     }
 }

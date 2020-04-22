@@ -25,6 +25,8 @@ class CreatePostController: UIViewController {
     
     private var descriptionText = "Testing posting"
     
+    var heightAnchor: NSLayoutConstraint!
+    
     init?(organization: User) {
         self.organization = organization
         super.init(nibName: nil, bundle: nil)
@@ -38,11 +40,8 @@ class CreatePostController: UIViewController {
         super.viewDidLoad()
 
         setupVC()
-    }
-    
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(true)
-        unregisterKeyboardNotifications()
+        setupTFDelegates()
+        print(organization.userType)
     }
     
     private func setupVC() {
@@ -51,9 +50,14 @@ class CreatePostController: UIViewController {
         postView.dateTF.setInputViewDatePicker(target: self, selector: #selector(tapDone))
         postView.submitButton.addTarget(self, action: #selector(submitButtonPressed(_:)), for: .touchUpInside)
         postView.descriptionTV.delegate = self
-        registerKeyboardNotifications()
+        heightAnchor = postView.organizationIV.heightAnchor.constraint(equalTo: postView.heightAnchor, multiplier: 0.21)
+        heightAnchor.isActive = true
     }
     
+    private func setupTFDelegates() {
+        postView.listingTitleTF.delegate = self
+        postView.locationTF.delegate = self
+    }
 
     @objc func tapDone() {
         if let datePicker = self.postView.dateTF.inputView as? UIDatePicker {
@@ -84,76 +88,47 @@ class CreatePostController: UIViewController {
                 }
             case .success:
                 DispatchQueue.main.async {
-                    self?.showAlert(title: "Listing Posted", message: "")
+//                    self?.showAlert(title: "Listing Posted", message: "")
+                    self?.navigationController?.popViewController(animated: true)
                 }
             }
         }
         
     }
     
-    private func registerKeyboardNotifications() {
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(_:)), name: UIResponder.keyboardWillShowNotification, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide(_:)), name: UIResponder.keyboardWillHideNotification, object: nil)
-    }
-    
-    
-    @objc private func keyboardWillShow(_ notification: NSNotification) {
-        guard let keyboardFrame = notification.userInfo?["UIKeyboardFrameBeginUserInfoKey"] as? CGRect else {
-            return
-        }
-        moveKeyboardUp(keyboardFrame.size.height)
-    }
-    
-    private func moveKeyboardUp(_ height: CGFloat) {
-        if keyboardIsVisible { return }
-        
-        UIView.animate(withDuration: 0.3) {
-            
-//            self.postView.orgIVTopAnchor?.isActive = false
-            
-            self.postView.orgIVTopAnchor = self.postView.organizationIV.topAnchor.constraint(equalTo: self.postView.bottomAnchor, constant: -(height + 0)
-            )
-            self.postView.orgIVTopAnchor?.isActive = true
-            self.postView.layoutIfNeeded()
-            
-        }
-        
-        keyboardIsVisible = true
-    }
-    
-    private func unregisterKeyboardNotifications() {
-        NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillShowNotification, object: nil)
-        NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillHideNotification, object: nil)
-    }
-    
-    @objc private func keyboardWillHide(_ notification: NSNotification) {
-        resetUI()
-    }
-    private func resetUI() {
-        keyboardIsVisible = false
-        
-        UIView.animate(withDuration: 0.3) {
-            self.postView.orgIVTopAnchor?.isActive = false
-            self.postView.orgIVTopAnchor = self.postView.organizationIV.topAnchor.constraint(equalTo: self.postView.bottomAnchor, constant: 0)
-            self.postView.orgIVTopAnchor?.isActive = true
-            self.postView.layoutIfNeeded()
-        }
-    }
 }
 
 extension CreatePostController: UITextViewDelegate {
     
     func textViewDidBeginEditing(_ textView: UITextView) {
         print("in text view")
+        postView.descriptionTV.text = ""
+        heightAnchor.isActive = false
+        heightAnchor = postView.organizationIV.heightAnchor.constraint(equalToConstant: 0)
+        heightAnchor.isActive = true
         keyboardIsVisible = true
     }
     
     func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
         if(text == "\n") {
             textView.resignFirstResponder()
+            heightAnchor.isActive = false
+            heightAnchor = postView.organizationIV.heightAnchor.constraint(equalTo: postView.heightAnchor, multiplier: 0.21)
+            heightAnchor.isActive = true
             keyboardIsVisible = false
             return false
         }
         return true
     }
 }
+
+extension CreatePostController: UITextFieldDelegate {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        postView.listingTitleTF.resignFirstResponder()
+        postView.locationTF.resignFirstResponder()
+        return true
+    }
+    
+}
+
+
