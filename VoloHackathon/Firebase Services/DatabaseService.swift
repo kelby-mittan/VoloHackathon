@@ -23,12 +23,12 @@ class DatabaseService {
     private init() {}
     static let shared = DatabaseService()
     
-    public func createDatabaseUser(authDataResult: AuthDataResult, completion: @escaping (Result<Bool, Error>) -> ()) {
+    public func createDatabaseUser(authDataResult: AuthDataResult, userType: String, completion: @escaping (Result<Bool, Error>) -> ()) {
         
         guard let email = authDataResult.user.email else {
             return
         }
-        db.collection(DatabaseService.users).document(authDataResult.user.uid).setData(["email" : email, "createdData": Timestamp(date: Date()), "userId": authDataResult.user.uid]) { (error) in
+        db.collection(DatabaseService.users).document(authDataResult.user.uid).setData(["email" : email, "createdData": Timestamp(date: Date()), "userId": authDataResult.user.uid, "userType": userType]) { (error) in
             
             if let error = error {
                 completion(.failure(error))

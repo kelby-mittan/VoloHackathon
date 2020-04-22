@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import FirebaseAuth
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
@@ -19,10 +20,33 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
         guard let windowScene = (scene as? UIWindowScene) else { return }
         window = UIWindow(frame: UIScreen.main.bounds)
+        window?.tintColor = #colorLiteral(red: 0.9675597548, green: 0.4630349874, blue: 0.4231805205, alpha: 1)
         window?.windowScene = windowScene
         
-        //UIViewController.showViewController(storyBoardName: "Login", viewControllerId: "LoginViewController")
-        UIViewController.showViewController(storyBoardName: "Volunteer", viewControllerId: "VolunteerTabBarController")
+
+//        if let user = Auth.auth().currentUser {
+//            DatabaseService.shared.fetchUserInfo(userId: user.uid) { (result) in
+//                switch result {
+//                case .failure(let error):
+//                    print("\(error) getting userInfo")
+//                case .success(let user):
+//                    DispatchQueue.main.async {
+//                        if user.first?.userType == "Volunteer" {
+//                            UIViewController.showViewController(storyBoardName: "Volunteer", viewControllerId: "VolunteerTabBarController")
+//                        } else if user.first?.userType == "Organization" {
+//                            UIViewController.showViewController(storyBoardName: "Organization", viewControllerId: "OrganizationTabBarController")
+//                        }
+//                    }
+//                }
+//            }
+//        } else {
+//            UIViewController.showViewController(storyBoardName: "Login", viewControllerId: "LoginViewController")
+//        }
+        
+        UIViewController.showViewController(storyBoardName: "Login", viewControllerId: "LoginViewController")
+//        UIViewController.showViewController(storyBoardName: "Volunteer", viewControllerId: "VolunteerTabBarController")
+//        UIViewController.showViewController(storyBoardName: "Login", viewControllerId: "LoginViewController")
+
         window?.makeKeyAndVisible()
     }
 

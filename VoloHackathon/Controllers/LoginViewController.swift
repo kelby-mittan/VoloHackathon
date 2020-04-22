@@ -16,34 +16,20 @@ enum AccountState {
 
 class LoginViewController: UIViewController {
     
-    @IBOutlet weak var volunteerButton: UIButton!
-    @IBOutlet weak var lookingButton: UIButton!
     @IBOutlet weak var usernameTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var errorLabel: UILabel!
     
-    
-    private var accountState: AccountState = .existingUser
+    //    private var accountState: AccountState = .existingUser
     private var authentication = AuthenticationSession()
+    private var userType = String()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = #colorLiteral(red: 0.9568627477, green: 0.6588235497, blue: 0.5450980663, alpha: 1)
-        configureButtonUI()
     }
     
-
-    private func configureButtonUI() {
-        
-        volunteerButton.layer.cornerRadius = 10
-        volunteerButton.layer.borderWidth = 0.8
-        volunteerButton.layer.borderColor = UIColor.white.cgColor
-        lookingButton.layer.cornerRadius = 10
-        lookingButton.layer.borderWidth = 0.8
-        lookingButton.layer.borderColor = UIColor.white.cgColor
-    }
-    
-    @IBAction func volunterrButtonPressed(_ sender: UIButton) {
+    @IBAction func signInButtonPresser() {
         guard let username = usernameTextField.text, !username.isEmpty, let password = passwordTextField.text, !password.isEmpty else {
             errorLabel.text = "Both textfields must be filled!"
             errorLabel.textColor = .systemRed
@@ -52,64 +38,38 @@ class LoginViewController: UIViewController {
         continueLoginFlow(email: username, password: password)
     }
     
-    @IBAction func lookingButtonPressed(_ sender: UIButton) {
-        guard let username = usernameTextField.text, !username.isEmpty, let password = passwordTextField.text, !password.isEmpty else {
-            errorLabel.text = "Both fields must be filled"
-            return
+    private func navigateToAppView() {
+        if let user = Auth.auth().currentUser {
+            DatabaseService.shared.fetchUserInfo(userId: user.uid) { (result) in
+                switch result {
+                case .failure(let error):
+                    print("\(error) getting userInfo")
+                case .success(let user):
+                    DispatchQueue.main.async {
+                        if user.first?.userType == "Volunteer" {
+                            UIViewController.showViewController(storyBoardName: "Volunteer", viewControllerId: "VolunteerTabBarController")
+                        } else if user.first?.userType == "Organization" {
+                            UIViewController.showViewController(storyBoardName: "Organization", viewControllerId: "OrganizationTabBarController")
+                        }
+                    }
+                }
+            }
         }
-        continueLoginFlow(email: username, password: password)
-    }
-    
-    private func navigateToUserView() {
-        UIViewController.showViewController(storyBoardName: "Volunteer", viewControllerId: "VolunteerTabBarController")
-    }
-    
-    private func navigateToPostView() {
-        
     }
     
     private func continueLoginFlow(email: String, password: String) {
         
-        if accountState == .existingUser {
-            authentication.signExistingUser(email: email, password: password) { [weak self] (result) in
-                switch result {
-                case .failure(let error):
-                    DispatchQueue.main.async {
-                        self?.errorLabel.text = "\(error)"
-                        self?.errorLabel.textColor = .systemRed
-                    }
-                case .success(_):
-                    self?.navigateToUserView()
-                }
-            }
-        } else {
-            authentication.createNewUser(email: email, password: password) { [weak self] (result) in
-                switch result {
-                case .failure(let error):
-                    DispatchQueue.main.async {
-                        self?.errorLabel.text = "\(error)"
-                        self?.errorLabel.textColor = .systemRed
-                    }
-                case .success(let authDataResult):
-                    DispatchQueue.main.async {
-                        self?.createDatabaseUser(authDataResult: authDataResult)
-                    }
-                }
-            }
-        }
-    }
-    
-    private func createDatabaseUser(authDataResult: AuthDataResult) {
-        DatabaseService.shared.createDatabaseUser(authDataResult: authDataResult) { [weak self] (result) in
+        authentication.signExistingUser(email: email, password: password) { [weak self] (result) in
             switch result {
             case .failure(let error):
                 DispatchQueue.main.async {
-                    print("\(error)")
+                    print("user doesnt exist")
+                    self?.errorLabel.text = "\(error)"
+                    self?.errorLabel.textColor = .systemRed
                 }
             case .success(_):
-                self?.navigateToUserView()
+                self?.navigateToAppView()
             }
         }
     }
-    
 }

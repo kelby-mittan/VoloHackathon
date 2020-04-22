@@ -12,6 +12,14 @@ class VolunteerFeedController: UIViewController {
 
     private var volunteerFeedView = VolunteerView()
     
+    private var posts = [Post]() {
+        didSet {
+            DispatchQueue.main.async {
+                self.volunteerFeedView.collectionView.reloadData()
+            }
+        }
+    }
+    
     override func loadView() {
         view = volunteerFeedView
     }
@@ -23,6 +31,7 @@ class VolunteerFeedController: UIViewController {
         navigationItem.title = "Volunteer"
 
         configureCollectionView()
+        getPosts()
         
 
     }
@@ -34,12 +43,23 @@ class VolunteerFeedController: UIViewController {
         volunteerFeedView.collectionView.register(PostCell.self, forCellWithReuseIdentifier: "postCell")
         
     }
+    
+    private func getPosts() {
+        DatabaseService.shared.fetchAllPosts { [weak self] (result) in
+            switch result {
+            case .failure(let error):
+                print("error getting volunteer post: \(error.localizedDescription)")
+            case .success(let posts):
+                self?.posts = posts
+            }
+        }
+    }
 
 }
 
 extension VolunteerFeedController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 3
+        return posts.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -48,9 +68,8 @@ extension VolunteerFeedController: UICollectionViewDataSource {
         }
         
         cell.backgroundColor = .white
-        
-        // single posting from array retrived from firebase
-        // configureCell
+        let post = posts[indexPath.row]
+        cell.configureCell(post)
         return cell
     }
 }
@@ -65,9 +84,8 @@ extension VolunteerFeedController: UICollectionViewDelegateFlowLayout {
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        
-        let detailVC = PostDetailController()
-        // should pass a post 
+        let post = posts[indexPath.row]
+        let detailVC = PostDetailController(post)
         navigationController?.pushViewController(detailVC, animated: true)
         
     }
