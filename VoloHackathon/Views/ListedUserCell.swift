@@ -46,9 +46,10 @@ class ListedUserCell: UITableViewCell {
         addSubview(userImage)
         userImage.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            userImage.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16),
-            userImage.topAnchor.constraint(equalTo: topAnchor, constant: 8),
-            userImage.bottomAnchor.constraint(equalTo: bottomAnchor, constant: 8)
+            userImage.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
+            userImage.topAnchor.constraint(equalTo: self.topAnchor, constant: 8),
+            userImage.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -8),
+            userImage.widthAnchor.constraint(equalTo: userImage.heightAnchor)
         ])
     }
     
@@ -56,15 +57,17 @@ class ListedUserCell: UITableViewCell {
         addSubview(nameLabel)
         nameLabel.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            nameLabel.leadingAnchor.constraint(equalTo: userImage.trailingAnchor, constant: 10),
-            nameLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -8)
+            nameLabel.leadingAnchor.constraint(equalTo: userImage.trailingAnchor, constant: 20),
+            nameLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -8),
+            nameLabel.centerYAnchor.constraint(equalTo: self.centerYAnchor)
+        
         ])
     }
     
     public func configureUserCell(user: User) {
         
         nameLabel.text = user.name
-        userImage.kf.setImage(with: URL(string: user.imageURL))
+//        userImage.kf.setImage(with: URL(string: user.imageURL))
     }
 
 }

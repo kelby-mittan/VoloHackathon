@@ -66,4 +66,8 @@ extension UserTableViewController: UITableViewDelegate, UITableViewDataSource {
         cell.configureUserCell(user: userInfo)
         return cell
     }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 100
+    }
 }
