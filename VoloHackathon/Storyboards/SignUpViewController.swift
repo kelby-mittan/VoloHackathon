@@ -17,7 +17,7 @@ class SignUpViewController: UIViewController {
     @IBOutlet weak var postButton: UIButton!
     @IBOutlet weak var errorLabel: UILabel!
     
-    public var userType = ["Volunteer","Post"]
+    public var userType = String()
     private var accountState: AccountState = .newUser
     private var authentication = AuthenticationSession()
     private var isSelected: Bool = false
@@ -33,15 +33,19 @@ class SignUpViewController: UIViewController {
     }
     
     @IBAction func volunteerButtonPressed(_ sender: UIButton) {
-        volunteerButton.layer.borderColor = UIColor.black.cgColor
-        volunteerButton.layer.borderWidth = 1.5
-        let newUserType = userType.first
+//        ToggleButton.shared.buttonPressed()
+//        volunteerButton.layer.borderColor = UIColor.black.cgColor
+//        volunteerButton.layer.borderWidth = 1.5
+//        let newUserType = userType.first
+        userType = "Volunteer"
     }
     
     @IBAction func postButtonPressed(_ sender: UIButton) {
-        postButton.layer.borderColor = UIColor.black.cgColor
-        postButton.layer.borderWidth = 1.5
-        let newUserType = userType.last
+//        ToggleButton.shared.buttonPressed()
+//        postButton.layer.borderColor = UIColor.black.cgColor
+//        postButton.layer.borderWidth = 1.5
+//        let newUserType = userType.last
+        userType = "Organization"
     }
     
     @IBAction func signUpButtonPressed(_ sender: UIButton) {
@@ -64,20 +68,19 @@ class SignUpViewController: UIViewController {
                     }
                 case .success(let authDataResult):
                     DispatchQueue.main.async {
-                        self?.createDatabaseUser(authDataResult: authDataResult, userType: self?.userType.first ?? "no userType")
-//                        self?.naviga
+                        self?.createDatabaseUser(authDataResult: authDataResult, userType: self?.userType ?? "Volunteer")
                     }
                 }
             }
         }
     }
     
-    private func navigateToVolunteerView() {
-        UIViewController.showViewController(storyBoardName: "Volunteer", viewControllerId: "VolunteerTabBarController")
-    }
-    
-    private func navigateToPostView() {
-        
+    private func navigateToAppView() {
+        if userType == "Volunteer" {
+            UIViewController.showViewController(storyBoardName: "Volunteer", viewControllerId: "VolunteerTabBarController")
+        } else if userType == "Organization" {
+            UIViewController.showViewController(storyBoardName: "Organization", viewControllerId: "OrganizationTabBarController")
+        }
     }
     
     private func createDatabaseUser(authDataResult: AuthDataResult, userType: String) {
@@ -90,7 +93,7 @@ class SignUpViewController: UIViewController {
                 }
             case .success:
                 DispatchQueue.main.async {
-                    self?.navigateToVolunteerView()
+                    self?.navigateToAppView()
                 }
             }
         }

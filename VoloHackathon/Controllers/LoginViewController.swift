@@ -20,8 +20,9 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var errorLabel: UILabel!
     
-    private var accountState: AccountState = .existingUser
+    //    private var accountState: AccountState = .existingUser
     private var authentication = AuthenticationSession()
+    private var userType = String()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,33 +31,45 @@ class LoginViewController: UIViewController {
     
     @IBAction func signInButtonPresser() {
         guard let username = usernameTextField.text, !username.isEmpty, let password = passwordTextField.text, !password.isEmpty else {
-                    errorLabel.text = "Both textfields must be filled!"
-                    errorLabel.textColor = .systemRed
-                    return
-                }
+            errorLabel.text = "Both textfields must be filled!"
+            errorLabel.textColor = .systemRed
+            return
+        }
         continueLoginFlow(email: username, password: password)
     }
     
-    private func navigateToUserView() {
-        UIViewController.showViewController(storyBoardName: "Volunteer", viewControllerId: "VolunteerTabBarController")
+    private func navigateToAppView() {
+        if let user = Auth.auth().currentUser {
+            DatabaseService.shared.fetchUserInfo(userId: user.uid) { (result) in
+                switch result {
+                case .failure(let error):
+                    print("\(error) getting userInfo")
+                case .success(let user):
+                    DispatchQueue.main.async {
+                        if user.first?.userType == "Volunteer" {
+                            UIViewController.showViewController(storyBoardName: "Volunteer", viewControllerId: "VolunteerTabBarController")
+                        } else if user.first?.userType == "Organization" {
+                            UIViewController.showViewController(storyBoardName: "Organization", viewControllerId: "OrganizationTabBarController")
+                        }
+                    }
+                }
+            }
+        }
     }
     
     private func continueLoginFlow(email: String, password: String) {
         
-        if accountState == .existingUser {
-            authentication.signExistingUser(email: email, password: password) { [weak self] (result) in
-                switch result {
-                case .failure(let error):
-                    DispatchQueue.main.async {
-                        self?.errorLabel.text = "\(error)"
-                        self?.errorLabel.textColor = .systemRed
-                    }
-                case .success(_):
-                    self?.navigateToUserView()
+        authentication.signExistingUser(email: email, password: password) { [weak self] (result) in
+            switch result {
+            case .failure(let error):
+                DispatchQueue.main.async {
+                    print("user doesnt exist")
+                    self?.errorLabel.text = "\(error)"
+                    self?.errorLabel.textColor = .systemRed
                 }
+            case .success(_):
+                self?.navigateToAppView()
             }
-        } else {
-            errorLabel.text = "User does not exist. Create a new user or enter valid information."
         }
     }
 }

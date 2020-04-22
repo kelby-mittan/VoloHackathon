@@ -33,6 +33,7 @@
 		B7549F93244E970C001BC391 /* VolunteerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7549F92244E970C001BC391 /* VolunteerView.swift */; };
 		B7549F95244E9DF1001BC391 /* PostCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7549F94244E9DF1001BC391 /* PostCell.swift */; };
 		B79D52AC244FA71300159461 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B79D52AB244FA71300159461 /* SignUpViewController.swift */; };
+		B7A901582450728100C115E9 /* ToggleButtonClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7A901572450728100C115E9 /* ToggleButtonClass.swift */; };
 		B7B31D74244FC4F10071377F /* ClassSegue.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7B31D73244FC4F10071377F /* ClassSegue.swift */; };
 /* End PBXBuildFile section */
 
@@ -78,6 +79,7 @@
 		B7549F92244E970C001BC391 /* VolunteerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = VolunteerView.swift; path = VoloHackathon/Controllers/VolunteerView.swift; sourceTree = SOURCE_ROOT; };
 		B7549F94244E9DF1001BC391 /* PostCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PostCell.swift; path = VoloHackathon/Controllers/PostCell.swift; sourceTree = SOURCE_ROOT; };
 		B79D52AB244FA71300159461 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SignUpViewController.swift; path = VoloHackathon/Storyboards/SignUpViewController.swift; sourceTree = SOURCE_ROOT; };
+		B7A901572450728100C115E9 /* ToggleButtonClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToggleButtonClass.swift; sourceTree = "<group>"; };
 		B7B31D73244FC4F10071377F /* ClassSegue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClassSegue.swift; sourceTree = "<group>"; };
 		BBDFD53CE3D03C5988890656 /* Pods-VoloHackathonTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VoloHackathonTests.release.xcconfig"; path = "Target Support Files/Pods-VoloHackathonTests/Pods-VoloHackathonTests.release.xcconfig"; sourceTree = "<group>"; };
 		C3B9DF9D3C0CF2B69412D62A /* Pods_VoloHackathon.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_VoloHackathon.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -175,6 +177,7 @@
 			children = (
 				02379905244E4B7500C6DE74 /* UIViewController+Navigation.swift */,
 				B7B31D73244FC4F10071377F /* ClassSegue.swift */,
+				B7A901572450728100C115E9 /* ToggleButtonClass.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -429,6 +432,7 @@
 				B7549F91244E8A97001BC391 /* SavedController.swift in Sources */,
 				02379911244E6D8D00C6DE74 /* Post.swift in Sources */,
 				02379913244E83BD00C6DE74 /* DatabaseService.swift in Sources */,
+				B7A901582450728100C115E9 /* ToggleButtonClass.swift in Sources */,
 				0237990F244E6CE000C6DE74 /* User.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

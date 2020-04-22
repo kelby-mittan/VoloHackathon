@@ -143,30 +143,24 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" secureTextEntry="YES" textContentType="password"/>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="k10-Gs-IpJ">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="k10-Gs-IpJ" customClass="ToggleButton" customModule="VoloHackathon" customModuleProvider="target">
                                 <rect key="frame" x="55" y="422" width="110" height="110"/>
-                                <color key="backgroundColor" red="0.99787610770000001" green="0.65668725969999997" blue="0.55291658639999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="110" id="CLe-GN-svs"/>
                                     <constraint firstAttribute="height" constant="110" id="kEl-8P-8TM"/>
                                 </constraints>
-                                <state key="normal" title="Volunteer">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </state>
+                                <state key="normal" title="Volunteer"/>
                                 <connections>
                                     <action selector="volunteerButtonPressed:" destination="2CX-Us-5LZ" eventType="touchUpInside" id="363-Pq-Gqx"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZuJ-9J-Yvx">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZuJ-9J-Yvx" customClass="ToggleButton" customModule="VoloHackathon" customModuleProvider="target">
                                 <rect key="frame" x="249" y="422" width="110" height="110"/>
-                                <color key="backgroundColor" red="0.99787610770000001" green="0.65668725969999997" blue="0.55291658639999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="110" id="DEv-KQ-wEG"/>
                                     <constraint firstAttribute="width" constant="110" id="a5h-ec-zFO"/>
                                 </constraints>
-                                <state key="normal" title="Post">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </state>
+                                <state key="normal" title="Post"/>
                                 <connections>
                                     <action selector="postButtonPressed:" destination="2CX-Us-5LZ" eventType="touchUpInside" id="eKi-sj-Hwa"/>
                                 </connections>
