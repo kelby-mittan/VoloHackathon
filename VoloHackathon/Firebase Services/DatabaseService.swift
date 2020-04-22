@@ -81,7 +81,7 @@ class DatabaseService {
         guard let user = Auth.auth().currentUser, let email = user.email else { return }
         
         
-        db.collection(DatabaseService.posts).document(post.postId).setData(["orgId":post.orgId, "description" : post.description, "shortDescription" : post.shortDescription, "location": post.location, "category": post.category, "startDate": post.startDate, "postDate": Timestamp(date: Date()), "status": post.status, "email": email, "postId": post.postId]) { (error) in
+        db.collection(DatabaseService.posts).document(post.postId).setData(["orgId":post.orgId, "description" : post.description, "shortDescription" : post.shortDescription, "location": post.location, "category": post.category, "startDate": post.startDate, "postDate": Timestamp(date: Date()), "status": post.status, "email": email, "postId": post.postId, "imageURL": post.imageURL]) { (error) in
             
             if let error = error {
                 completion(.failure(error))
