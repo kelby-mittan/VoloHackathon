@@ -245,6 +245,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="mHX-CW-9tO"/>
                     <connections>
+                        <outlet property="errorLabel" destination="XnK-6Y-ika" id="8bI-cF-OWR"/>
                         <outlet property="passwordTextField" destination="lNT-EY-d2b" id="bck-EW-6V1"/>
                         <outlet property="postButton" destination="ZuJ-9J-Yvx" id="Hvl-q0-cW9"/>
                         <outlet property="usernameTextField" destination="Cm8-W6-ejO" id="BnH-Dx-8CH"/>
