@@ -96,7 +96,7 @@ class LoginViewController: UIViewController {
     }
     
     private func createDatabaseUser(authDataResult: AuthDataResult) {
-        DatabaseService.shared.createDatabaseUser(authDataResult: authDataResult) { [weak self] (result) in
+      DatabaseService.shared.createDatabaseUser(authDataResult: authDataResult, userType: "volunteer") { [weak self] (result) in
             switch result {
             case .failure(let error):
                 DispatchQueue.main.async {
