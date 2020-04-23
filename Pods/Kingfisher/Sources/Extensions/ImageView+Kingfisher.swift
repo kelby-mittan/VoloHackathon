@@ -403,8 +403,8 @@ extension KingfisherWrapper where Base: KFCrossPlatformImageView {
 }
 
 
-extension KFCrossPlatformImageView {
-    @objc func shouldPreloadAllAnimation() -> Bool { return true }
+@objc extension KFCrossPlatformImageView {
+    func shouldPreloadAllAnimation() -> Bool { return true }
 }
 
 extension KingfisherWrapper where Base: KFCrossPlatformImageView {
