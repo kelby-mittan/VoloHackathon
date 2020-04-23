@@ -67,7 +67,7 @@ class ListedUserCell: UITableViewCell {
     public func configureUserCell(user: User) {
         
         nameLabel.text = user.name
-//        userImage.kf.setImage(with: URL(string: user.imageURL))
+        userImage.kf.setImage(with: URL(string: user.imageURL))
     }
 
 }
