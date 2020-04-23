@@ -18,9 +18,7 @@ class LoginViewController: UIViewController {
     
     @IBOutlet weak var usernameTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
-    @IBOutlet weak var errorLabel: UILabel!
     
-    //    private var accountState: AccountState = .existingUser
     private var authentication = AuthenticationSession()
     private var userType = String()
     
@@ -31,8 +29,7 @@ class LoginViewController: UIViewController {
     
     @IBAction func signInButtonPresser() {
         guard let username = usernameTextField.text, !username.isEmpty, let password = passwordTextField.text, !password.isEmpty else {
-            errorLabel.text = "Both textfields must be filled!"
-            errorLabel.textColor = .systemRed
+            showAlert(title: "Missing Fields", message: "Please fill in the required fields.")
             return
         }
         continueLoginFlow(email: username, password: password)
@@ -64,8 +61,7 @@ class LoginViewController: UIViewController {
             case .failure(let error):
                 DispatchQueue.main.async {
                     print("user doesnt exist")
-                    self?.errorLabel.text = "\(error)"
-                    self?.errorLabel.textColor = .systemRed
+                    self?.showAlert(title: "Error", message: "Error logging in: \(error.localizedDescription)")
                 }
             case .success(_):
                 self?.navigateToAppView()
