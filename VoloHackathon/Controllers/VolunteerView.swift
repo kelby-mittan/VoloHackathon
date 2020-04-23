@@ -10,6 +10,11 @@ import UIKit
 
 class VolunteerView: UIView {
     
+    public lazy var searchBar: UISearchBar = {
+        let searchbar = UISearchBar()
+        return searchbar
+    }()
+    
     public lazy var collectionView: UICollectionView = {
            let layout = UICollectionViewFlowLayout()
            layout.scrollDirection = .vertical
@@ -29,7 +34,19 @@ class VolunteerView: UIView {
     }
     
     private func commonInit() {
+        searchBarConstraints()
         collectionViewConstraints()
+        
+    }
+    
+    private func searchBarConstraints() {
+        addSubview(searchBar)
+        searchBar.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            searchBar.leadingAnchor.constraint(equalTo: leadingAnchor),
+            searchBar.trailingAnchor.constraint(equalTo: trailingAnchor),
+            searchBar.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor)
+        ])
         
     }
     
@@ -40,7 +57,7 @@ class VolunteerView: UIView {
             collectionView.leadingAnchor.constraint(equalTo: leadingAnchor),
             collectionView.trailingAnchor.constraint(equalTo: trailingAnchor),
             collectionView.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor),
-            collectionView.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor)
+            collectionView.topAnchor.constraint(equalTo: searchBar.bottomAnchor)
         ])
     }
 

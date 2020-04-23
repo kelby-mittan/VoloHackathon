@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import MapKit
 
 class DetailView: UIView {
     
@@ -75,8 +76,14 @@ class DetailView: UIView {
         let label = UILabel()
         label.numberOfLines = 0
         label.text = "Location"
-        label.font = UIFont.monospacedDigitSystemFont(ofSize: 14, weight: .bold)
+        label.textAlignment = .center
+        label.font = UIFont.monospacedDigitSystemFont(ofSize: 17, weight: .bold)
         return label
+    }()
+    
+    public lazy var mapKitView: MKMapView = {
+        let map = MKMapView()
+        return map
     }()
     
     public lazy var volunteerButton: UIButton = {
@@ -107,6 +114,7 @@ class DetailView: UIView {
         smallLabelConstraints1()
         smallLabelConstraints2()
         smallLabelConstraints3()
+        mapConstraints()
         volunteerButtonConstraints()
         
     }
@@ -226,12 +234,24 @@ class DetailView: UIView {
         ])
     }
     
+    private func mapConstraints(){
+           contentView.addSubview(mapKitView)
+           mapKitView.translatesAutoresizingMaskIntoConstraints = false
+           
+           NSLayoutConstraint.activate([
+               mapKitView.topAnchor.constraint(equalTo: smallLabel3.bottomAnchor, constant: 20),
+               mapKitView.heightAnchor.constraint(equalTo: heightAnchor, multiplier: 0.20),
+               mapKitView.leadingAnchor.constraint(equalTo: leadingAnchor),
+               mapKitView.trailingAnchor.constraint(equalTo: trailingAnchor)
+           ])
+       }
+    
     private func volunteerButtonConstraints() {
         contentView.addSubview(volunteerButton)
         volunteerButton.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
-            volunteerButton.topAnchor.constraint(equalTo: smallLabel3.bottomAnchor, constant: 20),
+            volunteerButton.topAnchor.constraint(equalTo: mapKitView.bottomAnchor, constant: 20),
             volunteerButton.centerXAnchor.constraint(equalTo: centerXAnchor),
             volunteerButton.widthAnchor.constraint(equalTo: widthAnchor, multiplier: 0.5),
             volunteerButton.heightAnchor.constraint(equalToConstant: 44),

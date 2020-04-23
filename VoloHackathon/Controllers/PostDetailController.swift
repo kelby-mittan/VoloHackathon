@@ -10,6 +10,7 @@ import UIKit
 import Kingfisher
 import FirebaseAuth
 import CoreLocation
+import MapKit
 
 class PostDetailController: UIViewController {
     
@@ -112,17 +113,28 @@ class PostDetailController: UIViewController {
         detailView.mainImage.kf.setImage(with: URL(string: post.imageURL))
         detailView.largeLabel.text = post.shortDescription
         detailView.smallLabel2.text = post.description
+        loadMapAnnotation()
         
+        
+    }
+    
+    private func loadMapAnnotation() {
         let city = post.location
         getCoordinateFrom(address: city) { coordinate, error in
             guard let coordinate = coordinate, error == nil else {
                 print("no city")
                 return
-                
             }
-            // don't forget to update the UI from the main thread
+            // update the UI from the main thread
             DispatchQueue.main.async {
-                print("Location:", coordinate) // Rio de Janeiro, Brazil Location: CLLocationCoordinate2D(latitude: -22.9108638, longitude: -43.2045436)
+
+                let annotation = MKPointAnnotation()
+                annotation.title = self.post.orgId // use org id to get organization to populate the org name label and to annotate this 
+                
+                annotation.coordinate = CLLocationCoordinate2D(latitude: coordinate.latitude , longitude: coordinate.longitude)
+                self.detailView.mapKitView.addAnnotations([annotation])
+                self.detailView.mapKitView.showAnnotations([annotation], animated: true)
+                
             }
 
         }
