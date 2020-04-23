@@ -17,6 +17,10 @@ class DatabaseService {
     static let volunteers = "volunteers"
     static let interestedIn = "interestedIn"
     static let committedTo = "committedTo"
+    static let chats = "chats"
+    static let threads = "threads"
+  
+  private var docRef : DocumentReference?
     
     private let db = Firestore.firestore()
     
@@ -190,4 +194,69 @@ class DatabaseService {
         }
       }
     }
+  
+  public func createNewChat(user1ID: String, user2ID: String, completion: @escaping (Result<Bool, Error>) -> ()) {
+    let users = [user1ID, user2ID]
+    let data: [String: Any] = [DatabaseService.users: users]
+        
+    db.collection(DatabaseService.chats).addDocument(data: data) { (error) in
+      if let error = error {
+        completion(.failure(error))
+      } else {
+        completion(.success(true))
+      }
+    }
+  }
+  
+  public func loadChats(user1ID: String, user2ID: String, completion: @escaping (Result<Chat, Error>) -> ()) {
+    db.collection(DatabaseService.chats).whereField(DatabaseService.users, arrayContains: user1ID).getDocuments { (snapshot, error) in
+      if let error = error {
+        completion(.failure(error))
+      } else if let snapshot = snapshot {
+        for doc in snapshot.documents {
+          if let chat = Chat(dictionary: doc.data()) {
+          if (chat.users.contains(user2ID)) {
+            self.docRef = doc.reference
+            let docReference = doc.reference
+            docReference.collection(DatabaseService.threads).order(by: "created", descending: false)
+          }
+          completion(.success(chat))
+          }
+        }
+      }
+    }
+  }
+  
+  public func saveChatMessage(_ message: Message, user1ID: String, user2ID: String, completion: @escaping (Result <Bool, Error>) -> ()) {
+      let data: [String: Any] = ["content": message.content,
+                                 "created": message.created,
+                                 "id": message.id,
+                                 "senderID": message.senderID,
+                                 "senderName": message.senderName]
+      
+    docRef?.setData(data, completion: { (error) in
+      if let error = error {
+        completion(.failure(error))
+      } else {
+        completion(.success(true))
+      }
+    })
+  }
+  
+  public func chatsAvailable(userID: String, completion: @escaping (Result <[Chat], Error>) -> ()) {
+    db.collection(DatabaseService.chats).whereField(DatabaseService.users, arrayContains: userID).getDocuments { (snapshot, error) in
+      var chatArray = [Chat]()
+      if let error = error {
+        completion(.failure(error))
+      } else if let snapshot = snapshot {
+        for doc in snapshot.documents {
+          if let chat = Chat(dictionary: doc.data()) {
+            chatArray.append(chat)
+          completion(.success(chatArray))
+          }
+        }
+      }
+    }
+  }
+  
 }

@@ -9,27 +9,31 @@
 import UIKit
 
 class ProfileViewController: UIViewController {
+  
+  private var profileView = ProfileView()
+  
+  public var volunteer: User?
+  
+  override func loadView() {
+    view = profileView
+  }
+  
+  override func viewDidLoad() {
+    super.viewDidLoad()
+    profileView.messageButton.addTarget(self, action: #selector(messageButtonPressed(_:)), for: .touchUpInside)
     
-    private var profileView = ProfileView()
+  }
+  
+  
+  @objc func messageButtonPressed(_ sender: UIButton) {
+    print("message button pressed")
     
-    public var volunteer: User?
+    let chatVC = ChatViewController(nibName: nil, bundle: nil)
+    chatVC.user2ID = volunteer?.userId
+    present(chatVC, animated: true)
     
-    override func loadView() {
-        view = profileView
-    }
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        profileView.messageButton.addTarget(self, action: #selector(messageButtonPressed(_:)), for: .touchUpInside)
-
-    }
-    
-    
-    @objc func messageButtonPressed(_ sender: UIButton) {
-        print("message button pressed")
-        
-    }
-
-    
-
+  }
+  
+  
+  
 }
