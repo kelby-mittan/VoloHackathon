@@ -9,6 +9,7 @@
 import UIKit
 import Firebase
 import FirebaseAuth
+import Kingfisher
 
 class CreatePostController: UIViewController {
 
@@ -23,7 +24,7 @@ class CreatePostController: UIViewController {
     
     private var keyboardIsVisible = false
     
-    private var descriptionText = "Testing posting"
+    private var descriptionText = ""
     
     var heightAnchor: NSLayoutConstraint!
     
@@ -50,14 +51,18 @@ class CreatePostController: UIViewController {
         postView.dateTF.setInputViewDatePicker(target: self, selector: #selector(tapDone))
         postView.submitButton.addTarget(self, action: #selector(submitButtonPressed(_:)), for: .touchUpInside)
         postView.descriptionTV.delegate = self
-        heightAnchor = postView.organizationIV.heightAnchor.constraint(equalTo: postView.heightAnchor, multiplier: 0.21)
+        heightAnchor = postView.organizationIV.heightAnchor.constraint(equalTo: postView.heightAnchor, multiplier: 0.14)
         heightAnchor.isActive = true
+        navigationController?.navigationItem.title = organization.name
+        //postImage.kf.setImage(with: URL(string: post.imageURL))
+        postView.organizationIV.kf.setImage(with: URL(string: organization.imageURL))
     }
     
     private func setupTFDelegates() {
         postView.listingTitleTF.delegate = self
         postView.locationTF.delegate = self
     }
+    
 
     @objc func tapDone() {
         if let datePicker = self.postView.dateTF.inputView as? UIDatePicker {
@@ -76,12 +81,10 @@ class CreatePostController: UIViewController {
             showAlert(title: "Missing Fields", message: "Please enter all required fields")
             return
         }
-        print("button pressed")
         
-//        let post = Post(id: orgId, description: descriptionText, shortDescription: titleText, location: location, category: "", startDate: date, postDate: Timestamp(date: Date()), status: "unfulfilled", imageURL: "")
         let postId = UUID().uuidString
         
-        let post = Post(orgId: orgId, description: descriptionText, shortDescription: titleText, location: location, category: "", startDate: date, postDate: Timestamp(date: Date()), status: "unfulfilled", imageURL: "", postId: postId)
+        let post = Post(orgId: orgId, description: descriptionText, shortDescription: titleText, location: location, category: "", startDate: date, postDate: Timestamp(date: Date()), status: "unfulfilled", imageURL: organization.imageURL, postId: postId)
         
         databaseService.addPost(post: post) { [weak self] (result) in
             switch result {
@@ -91,21 +94,36 @@ class CreatePostController: UIViewController {
                 }
             case .success:
                 DispatchQueue.main.async {
-//                    self?.showAlert(title: "Listing Posted", message: "")
                     self?.navigationController?.popViewController(animated: true)
                 }
+//                self?.animateImage()
             }
         }
-        
     }
     
+    private func animateImage() {
+        let duration: Double = 0.55
+        let curveOption: UIView.AnimationOptions = .curveEaseInOut
+        
+        UIView.transition(with: postView.organizationIV, duration: duration, options: [.transitionFlipFromRight, curveOption], animations: {
+            
+            
+        }) { (done) in
+            self.postView.organizationIV.alpha = 0.35
+            DispatchQueue.main.async {
+                self.navigationController?.popViewController(animated: true)
+            }
+        }
+    }
 }
 
 extension CreatePostController: UITextViewDelegate {
     
     func textViewDidBeginEditing(_ textView: UITextView) {
         print("in text view")
-        postView.descriptionTV.text = ""
+        postView.descriptionTV.text = descriptionText
+        postView.descriptionTV.textColor = .black
+        postView.descriptionTV.font = UIFont(name: textView.font!.fontName, size: 16)
         heightAnchor.isActive = false
         heightAnchor = postView.organizationIV.heightAnchor.constraint(equalToConstant: 0)
         heightAnchor.isActive = true
@@ -115,8 +133,9 @@ extension CreatePostController: UITextViewDelegate {
     func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
         if(text == "\n") {
             textView.resignFirstResponder()
+            descriptionText = textView.text
             heightAnchor.isActive = false
-            heightAnchor = postView.organizationIV.heightAnchor.constraint(equalTo: postView.heightAnchor, multiplier: 0.21)
+            heightAnchor = postView.organizationIV.heightAnchor.constraint(equalTo: postView.heightAnchor, multiplier: 0.14)
             heightAnchor.isActive = true
             keyboardIsVisible = false
             return false
