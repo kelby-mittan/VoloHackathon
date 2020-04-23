@@ -181,7 +181,7 @@ class CreatePostView: UIView {
         listingTitleTF.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
-            listingTitleTF.topAnchor.constraint(equalTo: listingLabel.bottomAnchor, constant: 10),
+            listingTitleTF.topAnchor.constraint(equalTo: listingLabel.bottomAnchor, constant: 5),
             listingTitleTF.leadingAnchor.constraint(equalTo: listingLabel.leadingAnchor),
             listingTitleTF.trailingAnchor.constraint(equalTo: listingLabel.trailingAnchor),
             listingTitleTF.heightAnchor.constraint(equalToConstant: 34)
@@ -204,7 +204,7 @@ class CreatePostView: UIView {
         locationTF.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
-            locationTF.topAnchor.constraint(equalTo: locationLabel.bottomAnchor, constant: 10),
+            locationTF.topAnchor.constraint(equalTo: locationLabel.bottomAnchor, constant: 5),
             locationTF.leadingAnchor.constraint(equalTo: locationLabel.leadingAnchor),
             locationTF.trailingAnchor.constraint(equalTo: locationLabel.trailingAnchor),
             locationTF.heightAnchor.constraint(equalToConstant: 34)
@@ -227,7 +227,7 @@ class CreatePostView: UIView {
         dateTF.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
-            dateTF.topAnchor.constraint(equalTo: dateLabel.bottomAnchor, constant: 10),
+            dateTF.topAnchor.constraint(equalTo: dateLabel.bottomAnchor, constant: 5),
             dateTF.leadingAnchor.constraint(equalTo: dateLabel.leadingAnchor),
             dateTF.trailingAnchor.constraint(equalTo: dateLabel.trailingAnchor),
             dateTF.heightAnchor.constraint(equalToConstant: 34)
@@ -250,10 +250,10 @@ class CreatePostView: UIView {
         descriptionTV.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
-            descriptionTV.topAnchor.constraint(equalTo: descriptionLabel.bottomAnchor, constant: 10),
+            descriptionTV.topAnchor.constraint(equalTo: descriptionLabel.bottomAnchor, constant: 5),
             descriptionTV.leadingAnchor.constraint(equalTo: descriptionLabel.leadingAnchor),
             descriptionTV.trailingAnchor.constraint(equalTo: descriptionLabel.trailingAnchor),
-            descriptionTV.heightAnchor.constraint(equalToConstant: 126)
+            descriptionTV.heightAnchor.constraint(equalToConstant: 120)
         ])
     }
     

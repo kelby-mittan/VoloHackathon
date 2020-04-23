@@ -28,6 +28,8 @@ class OrganizationFeedController: UIViewController {
         }
     }
     
+    private var listener: ListenerRegistration?
+    
     var orgUser: User?
     
     let orgId = Auth.auth().currentUser?.uid
@@ -36,14 +38,33 @@ class OrganizationFeedController: UIViewController {
         super.viewDidLoad()
         view.backgroundColor = .white
         navigationController?.navigationBar.prefersLargeTitles = true
-        navigationItem.title = "Organization"
         
         addPostButton = UIBarButtonItem(image: UIImage(systemName: "plus"), style: .plain, target: self, action: #selector(addPostPressed(_:)))
         navigationItem.rightBarButtonItem = addPostButton
         
         configureCollectionView()
-        
+        getOrgInfo()
         getPosts()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(true)
+        navigationController?.navigationBar.prefersLargeTitles = true
+        listener = Firestore.firestore().collection(DatabaseService.posts).addSnapshotListener({ [weak self] (snapshot, error) in
+            if let error = error {
+                DispatchQueue.main.async {
+                    self?.showAlert(title: "try again", message: "\(error.localizedDescription)")
+                }
+            } else if let snapshot = snapshot {
+                let posts = snapshot.documents.map { Post($0.data()) }
+                self?.posts = posts.sorted { $0.postDate.dateValue() > $1.postDate.dateValue() }.filter { $0.orgId == self?.orgId }
+            }
+        })
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(true)
+        listener?.remove()
     }
     
     private func configureCollectionView() {
@@ -65,8 +86,7 @@ class OrganizationFeedController: UIViewController {
         }
     }
     
-    @objc func addPostPressed(_ sender: UIBarButtonItem) {
-        
+    private func getOrgInfo() {
         guard let user = Auth.auth().currentUser else { return }
         
         DatabaseService.shared.fetchUserInfo(userId: user.uid) { [weak self] (result) in
@@ -74,12 +94,21 @@ class OrganizationFeedController: UIViewController {
             case .failure(let error):
                 print("\(error) getting userInfo")
             case .success(let users):
-                guard let user = users.first, let createPostVC = CreatePostController(organization: user) else { return }
+                guard let user = users.first else { return }
                 
-                self?.navigationController?.pushViewController(createPostVC, animated: true)
+                self?.orgUser = user
+                self?.navigationItem.title = user.name
             }
         }
-
+    }
+    
+    @objc func addPostPressed(_ sender: UIBarButtonItem) {
+        
+        guard let user = orgUser, let createPostVC = CreatePostController(organization: user) else {
+            fatalError()
+        }
+        
+        navigationController?.pushViewController(createPostVC, animated: true)
     }
     
 }
@@ -112,7 +141,7 @@ extension OrganizationFeedController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
         let post = posts[indexPath.row]
-
+        
         let TVController = UserTableViewController()
         
         TVController.selectedPost = post
