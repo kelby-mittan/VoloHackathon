@@ -25,15 +25,15 @@ class ChatViewController: MessagesViewController {
   private var listener: ListenerRegistration?
 
   
-  var user2ID: String?
+  var user2ID: String!
   private var newChat : Bool = false
   
   
   
   override func viewDidLoad() {
     super.viewDidLoad()
-    print("user1ID: \(currentUser.uid ?? "no user 1")")
-    print("user2ID: \(user2ID)")
+//    print("user1ID: \(currentUser.uid ?? "no user 1")")
+//    print("user2ID: \(user2ID)")
     
     self.title =  "Chat"
     navigationItem.largeTitleDisplayMode = .never
@@ -47,45 +47,36 @@ class ChatViewController: MessagesViewController {
     loadChat()
     
   }
-  
-//  private func listener() {
-//    listener = db.collection(DatabaseService.chats)
-//  }
-  
-  private func loadChat2() {
-    DatabaseService.shared.loadChats(user1ID: currentUser.uid, user2ID: user2ID!) { (result) in
-      switch result {
-      case .failure(let error):
-        print("chat Error \(error)")
-      case .success(let chats):
-        print("chat success ")
-      }
-    }
-  }
-  
+
   
   private func loadChat() {
     // fetch all chats with current user in it
-    let fetch = db.collection("Chats").whereField("users", arrayContains: currentUser.uid)
-    fetch.getDocuments { (snapshot, error) in
+    Firestore.firestore().collection("chats").whereField("users", arrayContains: currentUser.uid).getDocuments { (snapshot, error) in
       if let error = error {
         print("Error: \(error)")
         return
-      } else {
+      } else if let snapshot = snapshot {
         // count the number of documents returned
-        guard let count = snapshot?.documents.count else {
-          return
-        }
-        
-        if count == 0 {
+        if snapshot.documents.count == 0 {
           // no chats available -> create a new instance
-          self.createNewChat()
-        } else if count >= 1 {
+          DatabaseService.shared.createNewChat(user1ID: self.currentUser.uid, user2ID: self.user2ID) { (result) in
+            switch result {
+            case .failure(let error):
+              print("error \(error)")
+            case .success:
+              print("check firebase")
+//              self.messages = messages
+            }
+          }
+//          self.createNewChat()
+          return
+        } else if snapshot.documents.count >= 1 {
           // chats have currentUser id in it
-          for doc in snapshot!.documents {
-            let chat = Chat(dictionary: doc.data())
+          for doc in snapshot.documents {
+            if let chat = Chat(dictionary: doc.data()),
+              let user2ID = self.user2ID {
             // obtain chat with second user
-            if (chat?.users.contains(self.user2ID!))! {
+            if (chat.users.contains(user2ID)) {
               self.docReference = doc.reference
               self.docReference?.collection("thread").order(by: "created", descending: false).addSnapshotListener(includeMetadataChanges: true, listener: { (snapshot, error) in
                 if let error = error {
@@ -104,22 +95,36 @@ class ChatViewController: MessagesViewController {
               })
               return
             }
+            }
           }
           self.createNewChat()
+//                    DatabaseService.shared.createNewChat(user1ID: self.currentUser.uid, user2ID: self.user2ID) { (result) in
+//                      switch result {
+//                      case .failure(let error):
+//                        print("error \(error)")
+//                      case .success:
+//                        print("check firebase")
+//                        self.messages = messages
+//                      }
+//                    }
         } else {
-          print("it didnt work if this printed")
+          print("it didnt work it this printed")
         }
       }
     }
   }
   
-  private func createNewChat() {
-    DatabaseService.shared.createNewChat(user1ID: currentUser.uid, user2ID: user2ID!) { (result) in
-      switch result {
-      case .failure(let error):
-        print("error: \(error)")
-      case .success:
-        print("success")
+
+  func createNewChat() {
+    let users = [self.currentUser.uid, self.user2ID]
+    let data: [String: Any] = [ "users": users]
+    db.collection("chats").addDocument(data: data) { (error) in
+      if let error = error {
+        print("Unable to create chat error: \(error)")
+        return
+      } else {
+//        self.loadChat()
+        return
       }
     }
   }
@@ -162,15 +167,6 @@ extension ChatViewController: InputBarAccessoryViewDelegate {
     // calloing func to insert and save message
     insertNewMessage(message)
     save(message)
-//    DatabaseService.shared.saveChatMessage(message, user1ID: currentUser.uid, user2ID: user2ID!) { (result) in
-//            switch result {
-//      case .failure(let error):
-//        print("Error: \(error)")
-//      case .success:
-//        print("messages saved!! - check firebase")
-//      }
-//    }
-    
 
     // clear input field
     messagesCollectionView.reloadData()

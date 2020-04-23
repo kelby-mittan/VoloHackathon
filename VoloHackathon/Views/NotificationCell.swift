@@ -14,6 +14,7 @@ class NotificationCell: UITableViewCell {
   public lazy var nameLabel: UILabel = {
     let label = UILabel()
     label.backgroundColor = .white
+    label.text = "Organization Name"
     return label
   }()
 
@@ -35,7 +36,7 @@ class NotificationCell: UITableViewCell {
   }
 
   private func commonInit() {
-//    constraintLabel()
+    constraintLabel()
     constraintIcon()
   }
 

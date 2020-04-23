@@ -11,6 +11,7 @@ import UIKit
 struct Chat {
 
     var users: [String]
+  var id: String
 
     var dictionary: [String: Any] {
         return ["users": users]
@@ -20,8 +21,9 @@ struct Chat {
 extension Chat {
 
     init?(dictionary: [String: Any]) {
-        guard let chatUsers = dictionary["users"] as? [String] else { return nil }
-        self.init(users: chatUsers)
+        guard let chatUsers = dictionary["users"] as? [String],
+      let id = dictionary["id"] as? String else { return nil }
+      self.init(users: chatUsers, id: id)
     }
 
 }

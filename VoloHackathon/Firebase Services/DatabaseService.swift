@@ -234,16 +234,6 @@ class DatabaseService {
                                  "senderID": message.senderID,
                                  "senderName": message.senderName]
       
-//    let docRef = db.collection(DatabaseService.chats).whereField(DatabaseService.users, arrayContains: user1ID)
-    
-      // writing to the thread using the saved document reference we saved in load chat func
-//    db.collection(DatabaseService.chats).whereField(DatabaseService.users, arrayContains: user1ID).addDocument(data: data, completion: { (error) in
-//        if let error = error {
-//          completion(.failure(error))
-//        } else {
-//          completion(.success(true))
-//      }
-//      })
     docRef?.setData(data, completion: { (error) in
       if let error = error {
         completion(.failure(error))
@@ -251,6 +241,22 @@ class DatabaseService {
         completion(.success(true))
       }
     })
+  }
+  
+  public func chatsAvailable(userID: String, completion: @escaping (Result <[Chat], Error>) -> ()) {
+    db.collection(DatabaseService.chats).whereField(DatabaseService.users, arrayContains: userID).getDocuments { (snapshot, error) in
+      var chatArray = [Chat]()
+      if let error = error {
+        completion(.failure(error))
+      } else if let snapshot = snapshot {
+        for doc in snapshot.documents {
+          if let chat = Chat(dictionary: doc.data()) {
+            chatArray.append(chat)
+          completion(.success(chatArray))
+          }
+        }
+      }
+    }
   }
   
 }

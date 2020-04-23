@@ -29,7 +29,6 @@ class ProfileViewController: UIViewController {
     print("message button pressed")
     
     let chatVC = ChatViewController(nibName: nil, bundle: nil)
-    print("user id: \(volunteer?.userId)")
     chatVC.user2ID = volunteer?.userId
     present(chatVC, animated: true)
     
