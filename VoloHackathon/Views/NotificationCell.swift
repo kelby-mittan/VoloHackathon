@@ -37,7 +37,7 @@ class NotificationCell: UITableViewCell {
 
   private func commonInit() {
     constraintLabel()
-    constraintIcon()
+    //constraintIcon()
   }
 
   private func constraintLabel() {
@@ -45,7 +45,7 @@ class NotificationCell: UITableViewCell {
     nameLabel.translatesAutoresizingMaskIntoConstraints = false
     NSLayoutConstraint.activate([
       nameLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 10),
-      nameLabel.trailingAnchor.constraint(equalTo: leadingAnchor, constant: 0),
+      nameLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: 0),
       nameLabel.topAnchor.constraint(equalTo: topAnchor, constant: 10),
       nameLabel.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -10)
     ])

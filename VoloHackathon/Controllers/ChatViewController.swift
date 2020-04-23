@@ -78,7 +78,7 @@ class ChatViewController: MessagesViewController {
             // obtain chat with second user
             if (chat.users.contains(user2ID)) {
               self.docReference = doc.reference
-              self.docReference?.collection("thread").order(by: "created", descending: false).addSnapshotListener(includeMetadataChanges: true, listener: { (snapshot, error) in
+              Firestore.firestore().collection("chats").document("fHG8URry10Hj42Pp4dfa").collection("thread").order(by: "created", descending: false).addSnapshotListener(includeMetadataChanges: true, listener: { (snapshot, error) in
                 if let error = error {
                   print("Error: \(error)")
                   return
@@ -148,7 +148,7 @@ class ChatViewController: MessagesViewController {
                                "senderName": message.senderName]
     
     // writing to the thread using the saved document reference we saved in load chat func
-    docReference?.collection("thread").addDocument(data: data, completion: { (error) in
+    Firestore.firestore().collection("chats").document("fHG8URry10Hj42Pp4dfa").collection("thread").addDocument(data: data, completion: { (error) in
       if let error = error {
         print("Error sending message: \(error)")
         return

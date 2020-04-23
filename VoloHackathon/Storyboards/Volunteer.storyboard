@@ -23,7 +23,7 @@
             </objects>
             <point key="canvasLocation" x="828.98550724637687" y="136.60714285714286"/>
         </scene>
-        <!--Notifications-->
+        <!--Chats-->
         <scene sceneID="ZM6-nR-agc">
             <objects>
                 <viewController storyboardIdentifier="NotificationsController" id="mbu-eC-ina" customClass="NotificationsController" customModule="VoloHackathon" customModuleProvider="target" sceneMemberID="viewController">
@@ -33,11 +33,11 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="2ND-cM-mIW"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Notifications" image="bell" catalog="system" id="M52-sT-Y36"/>
+                    <navigationItem key="navigationItem" title="Chats" id="Nkg-WU-Bey"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="360-hy-xmp" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-62" y="887"/>
+            <point key="canvasLocation" x="847.82608695652175" y="886.60714285714278"/>
         </scene>
         <!--Volunteer Feed Controller-->
         <scene sceneID="vj0-Op-i9F">
@@ -67,7 +67,7 @@
                     <connections>
                         <segue destination="zFV-VU-9oH" kind="relationship" relationship="viewControllers" id="Y3l-Kd-8fN"/>
                         <segue destination="viZ-N2-tHY" kind="relationship" relationship="viewControllers" id="SJq-JW-Bc2"/>
-                        <segue destination="mbu-eC-ina" kind="relationship" relationship="viewControllers" id="mub-Fi-A3o"/>
+                        <segue destination="yBE-w2-tn3" kind="relationship" relationship="viewControllers" id="mub-Fi-A3o"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8dN-Jc-Aav" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -111,6 +111,25 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Iq2-ze-Kql" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-81.159420289855078" y="136.60714285714286"/>
+        </scene>
+        <!--Notifications-->
+        <scene sceneID="Z2B-CY-Kr5">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="yBE-w2-tn3" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Notifications" image="bell" catalog="system" id="M52-sT-Y36"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="1sb-Nw-YBG">
+                        <rect key="frame" x="0.0" y="44" width="414" height="96"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="mbu-eC-ina" kind="relationship" relationship="rootViewController" id="lRD-uY-tv4"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="qkO-jR-FYP" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-62.318840579710148" y="886.60714285714278"/>
         </scene>
     </scenes>
     <resources>

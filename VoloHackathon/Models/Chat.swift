@@ -11,7 +11,7 @@ import UIKit
 struct Chat {
 
     var users: [String]
-  var id: String
+    var id: String
 
     var dictionary: [String: Any] {
         return ["users": users]
@@ -19,6 +19,7 @@ struct Chat {
 }
 
 extension Chat {
+    
 
     init?(dictionary: [String: Any]) {
         guard let chatUsers = dictionary["users"] as? [String],
