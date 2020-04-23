@@ -129,7 +129,18 @@ class PostDetailController: UIViewController {
             DispatchQueue.main.async {
 
                 let annotation = MKPointAnnotation()
-                annotation.title = self.post.orgId // use org id to get organization to populate the org name label and to annotate this 
+                
+                let orgId = self.post.orgId
+                
+                  DatabaseService.shared.fetchUserInfo(userId: orgId) { (result) in
+                    switch result {
+                    case .failure(let error):
+                        print("\(error) getting org info")
+                    case .success(let org):
+                        annotation.title = org.first?.name
+                    }
+                }
+                
                 
                 annotation.coordinate = CLLocationCoordinate2D(latitude: coordinate.latitude , longitude: coordinate.longitude)
                 self.detailView.mapKitView.addAnnotations([annotation])

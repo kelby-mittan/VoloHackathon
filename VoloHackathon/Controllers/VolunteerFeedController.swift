@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import FirebaseAuth
 
 class VolunteerFeedController: UIViewController {
 
@@ -38,9 +39,11 @@ class VolunteerFeedController: UIViewController {
         navigationController?.navigationBar.prefersLargeTitles = true
         navigationItem.title = "Volunteer"
         volunteerFeedView.searchBar.delegate = self
+        volunteerFeedView.searchBar.placeholder = "Search for opportunities"
 
         configureCollectionView()
         getPosts()
+        getUserInfo()
         
 
     }
@@ -68,6 +71,21 @@ class VolunteerFeedController: UIViewController {
             }
         }
     }
+    
+    private func getUserInfo() {
+           guard let user = Auth.auth().currentUser else { return }
+           
+           DatabaseService.shared.fetchUserInfo(userId: user.uid) { [weak self] (result) in
+               switch result {
+               case .failure(let error):
+                   print("\(error) getting userInfo")
+               case .success(let users):
+                   guard let user = users.first else { return }
+                   
+                   self?.navigationItem.title = "Welcome \(user.name.capitalized)!"
+               }
+           }
+       }
 
 }
 
