@@ -34,8 +34,8 @@ class NotificationsController: UIViewController {
   }
     
     private func createUsers() {
-        let user1 = User(userId: "1", name: "New York Cares", location: "", imageURL: "", userType: "Organization", verified: "")
-        let user2 = User(userId: "1", name: "Mount Sinai", location: "", imageURL: "", userType: "Organization", verified: "")
+        let user1 = User(userId: "1", name: "New York Cares", location: "", imageURL: "", userType: "Organization", verified: "", email: "")
+        let user2 = User(userId: "1", name: "Mount Sinai", location: "", imageURL: "", userType: "Organization", verified: "", email: "")
         listOfOrgs = [user1, user2]
         
     }

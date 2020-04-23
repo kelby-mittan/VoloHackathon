@@ -57,8 +57,8 @@ class ChatViewController: MessagesViewController {
     self.title =  "Chat"
     navigationItem.largeTitleDisplayMode = .never
     maintainPositionOnKeyboardFrameChanged = true
-    messageInputBar.inputTextView.tintColor = .orange
-    messageInputBar.sendButton.setTitleColor(.orange, for: .normal)
+    // messageInputBar.inputTextView.tintColor = .orange
+    // messageInputBar.sendButton.setTitleColor(.orange, for: .normal)
     messageInputBar.delegate = self
     messagesCollectionView.messagesDataSource = self
     messagesCollectionView.messagesLayoutDelegate = self
@@ -226,9 +226,8 @@ extension ChatViewController: MessagesLayoutDelegate {
 
 extension ChatViewController: MessagesDisplayDelegate {
   func backgroundColor(for message: MessageType, at indexPath: IndexPath, in messagesCollectionView: MessagesCollectionView) -> UIColor {
-    return isFromCurrentSender(message: message) ? #colorLiteral(red: 0.9675597548, green: 0.4630349874, blue: 0.4231805205, alpha: 1) : #colorLiteral(red: 0.9675597548, green: 0.4630349874, blue: 0.4231805205, alpha: 1)
+    return isFromCurrentSender(message: message) ? #colorLiteral(red: 0.9568627477, green: 0.6588235497, blue: 0.5450980663, alpha: 1) : #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1)
   }
-  
 //  func configureAvatarView(_ avatarView: AvatarView, for message: MessageType, at indexPath: IndexPath, in messagesCollectionView: MessagesCollectionView) {
 //    // if the current user -> show current photo
 //    if message.sender.senderId == currentUser.uid {
@@ -245,7 +244,8 @@ extension ChatViewController: MessagesDisplayDelegate {
   func messageStyle(for message: MessageType, at indexPath: IndexPath, in messagesCollectionView: MessagesCollectionView) -> MessageStyle {
     // styling the bubble to have a tail
     let corner: MessageStyle.TailCorner = isFromCurrentSender(message: message) ? .bottomRight : .bottomLeft
-    return .bubbleOutline(.green)
+    
+    return  .bubbleTail(corner, .pointedEdge)
   }
 }
 

@@ -16,6 +16,7 @@ struct User {
     let imageURL: String
     let userType: String
     let verified: String
+    let email: String
 }
 
 extension User {
@@ -28,6 +29,7 @@ extension User {
         self.imageURL = dictionary["imageURL"] as? String ?? "N/A"
         self.userType = dictionary["userType"] as? String ?? "N/A"
         self.verified = dictionary["verified"] as? String ?? "N/A"
+        self.email = dictionary["email"] as? String ?? "N/A"
     }
 }
 

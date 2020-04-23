@@ -21,7 +21,7 @@ class NotificationCell: UITableViewCell {
   public lazy var notificationIcon: UIImageView = {
     let icon = UIImageView()
     icon.image = UIImage(systemName: "exclamationmark.circle.fill")
-    icon.tintColor = .systemRed
+    icon.tintColor = #colorLiteral(red: 0.9568627477, green: 0.6588235497, blue: 0.5450980663, alpha: 1)
     return icon
   }()
 
@@ -37,7 +37,7 @@ class NotificationCell: UITableViewCell {
 
   private func commonInit() {
     constraintLabel()
-    //constraintIcon()
+    constraintIcon()
   }
 
   private func constraintLabel() {
@@ -56,8 +56,9 @@ class NotificationCell: UITableViewCell {
     notificationIcon.translatesAutoresizingMaskIntoConstraints = false
     NSLayoutConstraint.activate([
       notificationIcon.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -10),
-      notificationIcon.topAnchor.constraint(equalTo: topAnchor, constant: 40),
-      notificationIcon.widthAnchor.constraint(equalToConstant: 55)
+      notificationIcon.centerYAnchor.constraint(equalTo: centerYAnchor),
+      notificationIcon.widthAnchor.constraint(equalToConstant: 30),
+      notificationIcon.heightAnchor.constraint(equalTo: notificationIcon.widthAnchor)
     ])
   }
 

@@ -43,15 +43,15 @@ class ProfileView: UIView {
         let label = UILabel()
         label.numberOfLines = 0
         label.text = "Volunteer Email"
-        label.font = UIFont.monospacedDigitSystemFont(ofSize: 17, weight: .thin)
+        label.font = UIFont.monospacedDigitSystemFont(ofSize: 14, weight: .thin)
         return label
     }()
     
     public lazy var availablityLabel: UILabel = {
         let label = UILabel()
         label.numberOfLines = 0
-        label.text = "Volunteer Availability"
-        label.font = UIFont.monospacedDigitSystemFont(ofSize: 17, weight: .thin)
+        label.text = "Volunteer Availability: Mon - Fri"
+        label.font = UIFont.monospacedDigitSystemFont(ofSize: 14, weight: .thin)
         return label
     }()
     
@@ -147,7 +147,7 @@ class ProfileView: UIView {
            NSLayoutConstraint.activate([
               // messageButton.topAnchor.constraint(equalTo: smallLabel3.bottomAnchor, constant: 20),
                messageButton.centerXAnchor.constraint(equalTo: centerXAnchor),
-               messageButton.widthAnchor.constraint(equalTo: widthAnchor, multiplier: 0.4),
+               messageButton.widthAnchor.constraint(equalTo: widthAnchor, multiplier: 0.6),
                messageButton.heightAnchor.constraint(equalToConstant: 40),
                messageButton.bottomAnchor.constraint(equalTo: centerView.bottomAnchor, constant: -20)
            ])
