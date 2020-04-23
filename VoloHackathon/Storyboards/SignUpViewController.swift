@@ -15,7 +15,6 @@ class SignUpViewController: UIViewController {
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var volunteerButton: UIButton!
     @IBOutlet weak var postButton: UIButton!
-    @IBOutlet weak var errorLabel: UILabel!
     
     public var userType = String()
     private var accountState: AccountState = .newUser
@@ -33,25 +32,16 @@ class SignUpViewController: UIViewController {
     }
     
     @IBAction func volunteerButtonPressed(_ sender: UIButton) {
-//        ToggleButton.shared.buttonPressed()
-//        volunteerButton.layer.borderColor = UIColor.black.cgColor
-//        volunteerButton.layer.borderWidth = 1.5
-//        let newUserType = userType.first
         userType = "Volunteer"
     }
     
     @IBAction func postButtonPressed(_ sender: UIButton) {
-//        ToggleButton.shared.buttonPressed()
-//        postButton.layer.borderColor = UIColor.black.cgColor
-//        postButton.layer.borderWidth = 1.5
-//        let newUserType = userType.last
         userType = "Organization"
     }
     
     @IBAction func signUpButtonPressed(_ sender: UIButton) {
         guard let username = usernameTextField.text, !username.isEmpty, let password = passwordTextField.text, !password.isEmpty else {
-            errorLabel.text = "Both textfields must be filled"
-            errorLabel.textColor = .systemRed
+            showAlert(title: "Missing Fields", message: "Please fill in the required fields.")
             return
         }
         continueSignUpFlow(username: username, password: password)
@@ -63,8 +53,7 @@ class SignUpViewController: UIViewController {
                 switch result {
                 case .failure(let error):
                     DispatchQueue.main.async {
-                        self?.errorLabel.text = "\(error)"
-                        self?.errorLabel.textColor = .systemRed
+                        self?.showAlert(title: "Error", message: "Could not create new user. \(error.localizedDescription)")
                     }
                 case .success(let authDataResult):
                     DispatchQueue.main.async {
@@ -88,8 +77,7 @@ class SignUpViewController: UIViewController {
             switch result {
             case .failure(let error):
                 DispatchQueue.main.async {
-                    self?.errorLabel.text = "\(error)"
-                    self?.errorLabel.textColor = .systemRed
+                    self?.showAlert(title: "Error", message: "Could not create new user. \(error.localizedDescription)")
                 }
             case .success:
                 DispatchQueue.main.async {
