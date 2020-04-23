@@ -10,7 +10,7 @@
         <!--Login View Controller-->
         <scene sceneID="n90-91-iAI">
             <objects>
-                <viewController storyboardIdentifier="LoginViewController" id="Qa4-9j-pcR" customClass="LoginViewController" customModule="VoloHackathon" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="LoginViewController" wantsFullScreenLayout="YES" modalPresentationStyle="fullScreen" id="Qa4-9j-pcR" customClass="LoginViewController" customModule="VoloHackathon" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="XZu-RH-MZb">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -31,8 +31,7 @@
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
                                         <connections>
-                                            <action selector="signUpButtonPressed:" destination="2CX-Us-5LZ" eventType="touchUpInside" id="ca0-Th-VMD"/>
-                                            <segue destination="2CX-Us-5LZ" kind="push" customClass="ScaleSegue" customModule="VoloHackathon" splitViewControllerTargetIndex="1" id="xq0-U6-CT9"/>
+                                            <segue destination="2CX-Us-5LZ" kind="custom" customClass="ScaleSegue" customModule="VoloHackathon" customModuleProvider="target" id="KWe-TG-6wn"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -108,29 +107,29 @@
         <!--Sign Up View Controller-->
         <scene sceneID="eAG-oe-Zof">
             <objects>
-                <viewController id="2CX-Us-5LZ" customClass="SignUpViewController" customModule="VoloHackathon" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController wantsFullScreenLayout="YES" modalPresentationStyle="fullScreen" id="2CX-Us-5LZ" customClass="SignUpViewController" customModule="VoloHackathon" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="UVa-DH-z9i">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="VOLO" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d7P-1e-6cy">
-                                <rect key="frame" x="46" y="141" width="352" height="60"/>
+                                <rect key="frame" x="46" y="185" width="352" height="60"/>
                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="50"/>
                                 <color key="textColor" red="0.99787610770000001" green="0.65668725969999997" blue="0.55291658639999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Username" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Cm8-W6-ejO">
-                                <rect key="frame" x="55" y="265" width="304" height="34"/>
+                                <rect key="frame" x="55" y="309" width="304" height="34"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocorrectionType="no"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="lNT-EY-d2b">
-                                <rect key="frame" x="55" y="334" width="304" height="34"/>
+                                <rect key="frame" x="55" y="378" width="304" height="34"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" secureTextEntry="YES" textContentType="password"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="k10-Gs-IpJ" customClass="ToggleButton" customModule="VoloHackathon" customModuleProvider="target">
-                                <rect key="frame" x="55" y="408" width="110" height="110"/>
+                                <rect key="frame" x="55" y="452" width="110" height="110"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="110" id="CLe-GN-svs"/>
                                     <constraint firstAttribute="height" constant="110" id="kEl-8P-8TM"/>
@@ -141,18 +140,18 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZuJ-9J-Yvx" customClass="ToggleButton" customModule="VoloHackathon" customModuleProvider="target">
-                                <rect key="frame" x="249" y="408" width="110" height="110"/>
+                                <rect key="frame" x="249" y="452" width="110" height="110"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="110" id="DEv-KQ-wEG"/>
                                     <constraint firstAttribute="width" constant="110" id="a5h-ec-zFO"/>
                                 </constraints>
-                                <state key="normal" title="Post"/>
+                                <state key="normal" title="Recruiter"/>
                                 <connections>
                                     <action selector="postButtonPressed:" destination="2CX-Us-5LZ" eventType="touchUpInside" id="eKi-sj-Hwa"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HIB-cB-xs3">
-                                <rect key="frame" x="16" y="552" width="382" height="32"/>
+                                <rect key="frame" x="16" y="596" width="382" height="32"/>
                                 <fontDescription key="fontDescription" name="DINAlternate-Bold" family="DIN Alternate" pointSize="17"/>
                                 <state key="normal" title="Sign Up">
                                     <color key="titleColor" red="0.99787610770000001" green="0.65668725969999997" blue="0.55291658639999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -162,21 +161,19 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Already have an account?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gYd-4e-3Wf">
-                                <rect key="frame" x="49" y="592" width="316" height="20"/>
+                                <rect key="frame" x="49" y="636" width="316" height="20"/>
                                 <fontDescription key="fontDescription" name="DINAlternate-Bold" family="DIN Alternate" pointSize="17"/>
                                 <color key="textColor" red="0.99787610770000001" green="0.65668725969999997" blue="0.55291658639999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YTE-jP-z0D">
-                                <rect key="frame" x="16" y="617" width="382" height="32"/>
+                                <rect key="frame" x="16" y="661" width="382" height="32"/>
                                 <fontDescription key="fontDescription" name="DINAlternate-Bold" family="DIN Alternate" pointSize="17"/>
                                 <state key="normal" title="Sign In">
                                     <color key="titleColor" red="0.99787610770000001" green="0.65668725969999997" blue="0.55291658639999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 </state>
                                 <connections>
-                                    <action selector="signInButtonPresser" destination="Qa4-9j-pcR" eventType="touchUpInside" id="X9Z-oZ-1MH"/>
-                                    <action selector="signUpButtonPressed:" destination="2CX-Us-5LZ" eventType="touchUpInside" id="TIt-v7-yhm"/>
-                                    <segue destination="Qa4-9j-pcR" kind="custom" customClass="ScaleSegue" id="Ya7-rv-yjP"/>
+                                    <segue destination="Qa4-9j-pcR" kind="custom" customClass="ScaleSegue" customModule="VoloHackathon" customModuleProvider="target" id="1hT-dy-nbq"/>
                                 </connections>
                             </button>
                         </subviews>
