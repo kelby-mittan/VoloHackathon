@@ -27,6 +27,25 @@ class ChatViewController: MessagesViewController {
   
   var user2ID: String!
   private var newChat : Bool = false
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewDidAppear(true)
+        Firestore.firestore().collection("chats").document("fHG8URry10Hj42Pp4dfa").collection("thread").order(by: "created", descending: false).addSnapshotListener(includeMetadataChanges: true, listener: { (snapshot, error) in
+          if let error = error {
+            print("Error: \(error)")
+            return
+          } else {
+            self.messages.removeAll()
+            for message in snapshot!.documents {
+              let msg = Message(dictionary: message.data())
+              self.messages.append(msg!)
+              print("Data: \(msg?.content ?? "no message content found")")
+            }
+            self.messagesCollectionView.reloadData()
+            self.messagesCollectionView.scrollToBottom(animated: true)
+          }
+        })
+    }
   
   
   
@@ -44,7 +63,7 @@ class ChatViewController: MessagesViewController {
     messagesCollectionView.messagesDataSource = self
     messagesCollectionView.messagesLayoutDelegate = self
     messagesCollectionView.messagesDisplayDelegate = self
-    loadChat()
+   // loadChat()
     
   }
 
@@ -78,6 +97,7 @@ class ChatViewController: MessagesViewController {
             // obtain chat with second user
             if (chat.users.contains(user2ID)) {
               self.docReference = doc.reference
+                
               Firestore.firestore().collection("chats").document("fHG8URry10Hj42Pp4dfa").collection("thread").order(by: "created", descending: false).addSnapshotListener(includeMetadataChanges: true, listener: { (snapshot, error) in
                 if let error = error {
                   print("Error: \(error)")
@@ -93,6 +113,8 @@ class ChatViewController: MessagesViewController {
                   self.messagesCollectionView.scrollToBottom(animated: true)
                 }
               })
+                
+                
               return
             }
             }
