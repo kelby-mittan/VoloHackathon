@@ -62,7 +62,7 @@ class VolunteerFeedController: UIViewController {
                 if searchQuery == nil {
                     self?.posts = posts
                 } else {
-                    self?.posts = posts.filter { $0.description == searchQuery}
+                    self?.posts = posts.filter { $0.shortDescription == searchQuery }
                 }
                 
             }
