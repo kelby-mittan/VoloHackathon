@@ -29,6 +29,11 @@ class SavedController: UIViewController {
     override func loadView() {
         view = savedView
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        getSavedPosts()
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
