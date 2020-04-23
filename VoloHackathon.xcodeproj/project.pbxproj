@@ -31,6 +31,8 @@
 		3D97445F6B970AB53CE6C933 /* Pods_VoloHackathon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C3B9DF9D3C0CF2B69412D62A /* Pods_VoloHackathon.framework */; };
 		AAFB40247320D25FADB5A144 /* Pods_VoloHackathonTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 10101B2C777547EEE3E1D1FE /* Pods_VoloHackathonTests.framework */; };
 		B745E63B244FEB980009A1D4 /* EmptyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B745E63A244FEB980009A1D4 /* EmptyView.swift */; };
+		B745E63D2450E03B0009A1D4 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B745E63C2450E03B0009A1D4 /* ProfileViewController.swift */; };
+		B745E63F2450E06A0009A1D4 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B745E63E2450E06A0009A1D4 /* ProfileView.swift */; };
 		B750A3C1244F4CCA00A2FA91 /* PostDetailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B750A3C0244F4CCA00A2FA91 /* PostDetailController.swift */; };
 		B750A3C3244F4E0200A2FA91 /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B750A3C2244F4E0200A2FA91 /* DetailView.swift */; };
 		B7549F8B244E874C001BC391 /* VolunteerTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7549F8A244E874C001BC391 /* VolunteerTabBarController.swift */; };
@@ -87,6 +89,8 @@
 		4C28F2F4EEA6DC08019A9E44 /* Pods-VoloHackathon.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VoloHackathon.release.xcconfig"; path = "Target Support Files/Pods-VoloHackathon/Pods-VoloHackathon.release.xcconfig"; sourceTree = "<group>"; };
 		AABCD81EA870D3D47914D9F4 /* Pods-VoloHackathon.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VoloHackathon.debug.xcconfig"; path = "Target Support Files/Pods-VoloHackathon/Pods-VoloHackathon.debug.xcconfig"; sourceTree = "<group>"; };
 		B745E63A244FEB980009A1D4 /* EmptyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyView.swift; sourceTree = "<group>"; };
+		B745E63C2450E03B0009A1D4 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		B745E63E2450E06A0009A1D4 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 		B750A3C0244F4CCA00A2FA91 /* PostDetailController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostDetailController.swift; sourceTree = "<group>"; };
 		B750A3C2244F4E0200A2FA91 /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DetailView.swift; path = VoloHackathon/Controllers/DetailView.swift; sourceTree = SOURCE_ROOT; };
 		B7549F8A244E874C001BC391 /* VolunteerTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VolunteerTabBarController.swift; sourceTree = "<group>"; };
@@ -217,7 +221,11 @@
 				02379914244FA3F600C6DE74 /* OrganizationTabBarController.swift */,
 				02379916244FA43000C6DE74 /* OrganizationFeedController.swift */,
 				02379918244FBC7800C6DE74 /* CreatePostController.swift */,
+
+				B745E63C2450E03B0009A1D4 /* ProfileViewController.swift */,
+
 				B7A901592450CC3E00C115E9 /* UserTableViewController.swift */,
+
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -226,6 +234,7 @@
 			isa = PBXGroup;
 			children = (
 				B7549F92244E970C001BC391 /* VolunteerView.swift */,
+				B745E63E2450E06A0009A1D4 /* ProfileView.swift */,
 				B750A3C2244F4E0200A2FA91 /* DetailView.swift */,
 				B7549F94244E9DF1001BC391 /* PostCell.swift */,
 				0237991A244FBC9C00C6DE74 /* CreatePostView.swift */,
@@ -452,11 +461,13 @@
 				B750A3C3244F4E0200A2FA91 /* DetailView.swift in Sources */,
 				02379906244E4B7500C6DE74 /* UIViewController+Navigation.swift in Sources */,
 				B7549F93244E970C001BC391 /* VolunteerView.swift in Sources */,
+				B745E63D2450E03B0009A1D4 /* ProfileViewController.swift in Sources */,
 				02379904244E4B0A00C6DE74 /* LoginViewController.swift in Sources */,
 				0237991F24506C6600C6DE74 /* ShowAlert+Extension.swift in Sources */,
 				0237991D244FCCDA00C6DE74 /* UITextField+Extension.swift in Sources */,
 				02379917244FA43000C6DE74 /* OrganizationFeedController.swift in Sources */,
 				B79D52AC244FA71300159461 /* SignUpViewController.swift in Sources */,
+				B745E63F2450E06A0009A1D4 /* ProfileView.swift in Sources */,
 				B7549F8D244E89D8001BC391 /* VolunteerFeedController.swift in Sources */,
 				B7549F8B244E874C001BC391 /* VolunteerTabBarController.swift in Sources */,
 				B745E63B244FEB980009A1D4 /* EmptyView.swift in Sources */,

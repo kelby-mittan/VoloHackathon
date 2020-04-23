@@ -80,7 +80,8 @@ class DatabaseService {
         
         guard let user = Auth.auth().currentUser, let email = user.email else { return }
         
-        db.collection(DatabaseService.posts).document(UUID().uuidString).setData(["id":post.id, "description" : post.description, "shortDescription" : post.shortDescription, "location": post.location, "category": post.category, "startDate": post.startDate, "postDate": Timestamp(date: Date()), "status": post.status, "email": email]) { (error) in
+        
+        db.collection(DatabaseService.posts).document(post.postId).setData(["orgId":post.orgId, "description" : post.description, "shortDescription" : post.shortDescription, "location": post.location, "category": post.category, "startDate": post.startDate, "postDate": Timestamp(date: Date()), "status": post.status, "email": email, "postId": post.postId, "imageURL": post.imageURL]) { (error) in
             
             if let error = error {
                 completion(.failure(error))
@@ -94,7 +95,7 @@ class DatabaseService {
         
         guard let user = Auth.auth().currentUser, let email = user.email else { return }
         
-        db.collection(DatabaseService.users).document(user.uid).collection(DatabaseService.interestedIn).document(post.id).setData(["id":post.id, "description" : post.description, "shortDescription" : post.shortDescription, "location": post.location, "category": post.category, "startDate": post.startDate, "postDate": Timestamp(date: Date()), "status": post.status, "email": email]) { (error) in
+        db.collection(DatabaseService.users).document(user.uid).collection(DatabaseService.interestedIn).document(post.postId).setData(["orgId":post.orgId, "description" : post.description, "shortDescription" : post.shortDescription, "location": post.location, "category": post.category, "startDate": post.startDate, "postDate": Timestamp(date: Date()), "status": post.status, "email": email]) { (error) in
             
             if let error = error {
                 completion(.failure(error))
@@ -104,19 +105,19 @@ class DatabaseService {
         }
     }
     
-    public func addToCommittments(post: Post, completion: @escaping (Result<Bool, Error>) -> ()) {
-        
-        guard let user = Auth.auth().currentUser, let email = user.email else { return }
-        
-        db.collection(DatabaseService.users).document(user.uid).collection(DatabaseService.committedTo).document(post.id).setData(["id":post.id, "description" : post.description, "shortDescription" : post.shortDescription, "location": post.location, "category": post.category, "startDate": post.startDate, "postDate": Timestamp(date: Date()), "status": post.status, "email": email]) { (error) in
-            
-            if let error = error {
-                completion(.failure(error))
-            } else {
-                completion(.success(true))
-            }
-        }
-    }
+//    public func addToCommittments(post: Post, completion: @escaping (Result<Bool, Error>) -> ()) {
+//        
+//        guard let user = Auth.auth().currentUser, let email = user.email else { return }
+//        
+//        db.collection(DatabaseService.users).document(user.uid).collection(DatabaseService.committedTo).document(post.id).setData(["id":post.id, "description" : post.description, "shortDescription" : post.shortDescription, "location": post.location, "category": post.category, "startDate": post.startDate, "postDate": Timestamp(date: Date()), "status": post.status, "email": email]) { (error) in
+//            
+//            if let error = error {
+//                completion(.failure(error))
+//            } else {
+//                completion(.success(true))
+//            }
+//        }
+//    }
     
     /*
      let userId: String
@@ -127,11 +128,11 @@ class DatabaseService {
      let verified: String
      */
     
-    public func addVolunteer(volunteer: User, completion: @escaping (Result<Bool, Error>) -> ()) {
+    public func addVolunteer(post: Post, volunteer: User, completion: @escaping (Result<Bool, Error>) -> ()) {
         
         guard let user = Auth.auth().currentUser, let email = user.email else { return }
         
-        db.collection(DatabaseService.posts).document(user.uid).collection(DatabaseService.volunteers).document(volunteer.userId).setData(["userId":volunteer.userId, "name" : volunteer.name, "location" : volunteer.location, "imageURL": volunteer.imageURL, "userType": volunteer.userType, "verified": volunteer.verified, "email": email]) { (error) in
+        db.collection(DatabaseService.posts).document(post.postId).collection(DatabaseService.volunteers).document(volunteer.userId).setData(["userId":volunteer.userId, "name" : volunteer.name, "location" : volunteer.location, "imageURL": volunteer.imageURL, "userType": volunteer.userType, "verified": volunteer.verified, "email": email]) { (error) in
             
             if let error = error {
                 completion(.failure(error))
@@ -140,6 +141,7 @@ class DatabaseService {
             }
         }
     }
+
     
     public func fetchAllPosts(completion: @escaping (Result<[Post], Error>) -> ()) {
         
@@ -179,7 +181,7 @@ class DatabaseService {
     }
     
     public func fetchVolunteers(post: Post, completion: @escaping (Result<[User], Error>) -> ()) {
-      db.collection(DatabaseService.posts).document(post.id).collection(DatabaseService.volunteers).getDocuments { (snapshot, error) in
+      db.collection(DatabaseService.posts).document(post.postId).collection(DatabaseService.volunteers).getDocuments { (snapshot, error) in
         if let error = error {
           completion(.failure(error))
         } else if let snapshot = snapshot {

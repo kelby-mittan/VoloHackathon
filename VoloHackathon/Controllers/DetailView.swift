@@ -221,8 +221,8 @@ class DetailView: UIView {
         NSLayoutConstraint.activate([
             smallLabel3.topAnchor.constraint(equalTo: smallLabel2.bottomAnchor, constant: 20),
             smallLabel3.leadingAnchor.constraint(equalTo: smallLabel2.leadingAnchor),
-            smallLabel3.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20),
-            smallLabel3.bottomAnchor.constraint(equalTo: contentView.bottomAnchor)
+            smallLabel3.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20)
+            //smallLabel3.bottomAnchor.constraint(equalTo: contentView.bottomAnchor)
         ])
     }
     
@@ -231,10 +231,11 @@ class DetailView: UIView {
         volunteerButton.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
+            volunteerButton.topAnchor.constraint(equalTo: smallLabel3.bottomAnchor, constant: 20),
             volunteerButton.centerXAnchor.constraint(equalTo: centerXAnchor),
             volunteerButton.widthAnchor.constraint(equalTo: widthAnchor, multiplier: 0.5),
             volunteerButton.heightAnchor.constraint(equalToConstant: 44),
-            volunteerButton.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor, constant: -10)
+            volunteerButton.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -20)
         ])
     }
 }

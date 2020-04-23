@@ -60,7 +60,7 @@ class OrganizationFeedController: UIViewController {
             case .failure(let error):
                 print("error getting volunteer post: \(error.localizedDescription)")
             case .success(let posts):
-                self?.posts = posts.filter { $0.id == self?.orgId }
+                self?.posts = posts.filter { $0.orgId == self?.orgId }
             }
         }
     }

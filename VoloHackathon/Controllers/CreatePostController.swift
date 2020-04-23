@@ -78,7 +78,10 @@ class CreatePostController: UIViewController {
         }
         print("button pressed")
         
-        let post = Post(id: orgId, description: descriptionText, shortDescription: titleText, location: location, category: "", startDate: date, postDate: Timestamp(date: Date()), status: "unfulfilled", imageURL: "")
+//        let post = Post(id: orgId, description: descriptionText, shortDescription: titleText, location: location, category: "", startDate: date, postDate: Timestamp(date: Date()), status: "unfulfilled", imageURL: "")
+        let postId = UUID().uuidString
+        
+        let post = Post(orgId: orgId, description: descriptionText, shortDescription: titleText, location: location, category: "", startDate: date, postDate: Timestamp(date: Date()), status: "unfulfilled", imageURL: "", postId: postId)
         
         databaseService.addPost(post: post) { [weak self] (result) in
             switch result {
