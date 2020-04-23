@@ -20,6 +20,14 @@ class VolunteerFeedController: UIViewController {
         }
     }
     
+    private var searchQuery = "" {
+        didSet {
+            DispatchQueue.main.async {
+                self.getPosts(self.searchQuery)
+            }
+        }
+    }
+    
     override func loadView() {
         view = volunteerFeedView
     }
@@ -29,6 +37,7 @@ class VolunteerFeedController: UIViewController {
         view.backgroundColor = .white
         navigationController?.navigationBar.prefersLargeTitles = true
         navigationItem.title = "Volunteer"
+        volunteerFeedView.searchBar.delegate = self
 
         configureCollectionView()
         getPosts()
@@ -44,13 +53,18 @@ class VolunteerFeedController: UIViewController {
         
     }
     
-    private func getPosts() {
+    private func getPosts(_ searchQuery: String? = nil) {
         DatabaseService.shared.fetchAllPosts { [weak self] (result) in
             switch result {
             case .failure(let error):
                 print("error getting volunteer post: \(error.localizedDescription)")
             case .success(let posts):
-                self?.posts = posts
+                if searchQuery == nil {
+                    self?.posts = posts
+                } else {
+                    self?.posts = posts.filter { $0.shortDescription == searchQuery }
+                }
+                
             }
         }
     }
@@ -88,5 +102,18 @@ extension VolunteerFeedController: UICollectionViewDelegateFlowLayout {
         let detailVC = PostDetailController(post)
         navigationController?.pushViewController(detailVC, animated: true)
         
+    }
+}
+
+extension VolunteerFeedController: UISearchBarDelegate {
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        searchBar.resignFirstResponder()
+        
+        guard let searchText = searchBar.text, !searchText.isEmpty else {
+            print("search text issue")
+            return
+        }
+        
+        searchQuery = searchText
     }
 }
