@@ -29,4 +29,14 @@ extension UIViewController {
         resetWindow(with: viewcontroller)
     }
     
+    public func showOptionsAlert(title: String?, message: String, yesText: String, noText: String, completion: ((UIAlertAction) -> Void)? = nil) {
+        let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        let yesAction = UIAlertAction(title: yesText, style: .default, handler: completion)
+        let noAction = UIAlertAction(title: noText, style: .default, handler: nil)
+        alertController.addAction(yesAction)
+        alertController.addAction(noAction)
+        present(alertController, animated: true, completion: nil)
+        
+    }
+    
 }
