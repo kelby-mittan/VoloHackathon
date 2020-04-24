@@ -16,7 +16,7 @@ class UserTableViewController: UIViewController {
         didSet {
             DispatchQueue.main.async {
                 if self.listedUsers.isEmpty {
-                    self.tableView.tableView.backgroundView = EmptyView(title: "No Users", message: "No one is interested in your opportunity.", imageName: "volunteer")
+                    self.tableView.tableView.backgroundView = EmptyView(title: "No Volunteer Yet 🤨", message: "No one has requested to be of this opportunity yet.", imageName: "volunteer")
                 } else {
                     self.tableView.tableView.backgroundView = nil
                 }

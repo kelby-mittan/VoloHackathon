@@ -7,7 +7,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Item 2-->
+        <!--Notifications-->
         <scene sceneID="IPp-TU-FVW">
             <objects>
                 <viewController id="Isz-AW-qx7" sceneMemberID="viewController">
@@ -17,7 +17,7 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="eiU-zJ-cky"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item 2" id="0ls-mm-fh1"/>
+                    <tabBarItem key="tabBarItem" title="Notifications" image="bell" catalog="system" id="0ls-mm-fh1"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ta7-ar-GL6" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -78,6 +78,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="bell" catalog="system" width="128" height="124"/>
         <image name="list.dash" catalog="system" width="128" height="85"/>
     </resources>
 </document>

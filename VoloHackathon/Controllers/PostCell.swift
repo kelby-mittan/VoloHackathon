@@ -29,7 +29,7 @@ class PostCell: UICollectionViewCell {
     
     public lazy var orgNameLabel: UILabel = {
         let label = UILabel()
-        label.font = UIFont.monospacedDigitSystemFont(ofSize: 15, weight: .regular)
+        label.font = UIFont.monospacedDigitSystemFont(ofSize: 14, weight: .regular)
         label.text = "Organization Name"
         label.numberOfLines = 0
         return label
@@ -46,7 +46,7 @@ class PostCell: UICollectionViewCell {
     
     public lazy var dateLabel: UILabel = {
         let label = UILabel()
-        label.font = UIFont.monospacedDigitSystemFont(ofSize: 15, weight: .regular)
+        label.font = UIFont.monospacedDigitSystemFont(ofSize: 14, weight: .regular)
         label.text = "Date"
         return label
     }()
@@ -87,7 +87,7 @@ class PostCell: UICollectionViewCell {
             postImage.topAnchor.constraint(equalTo: topAnchor),
             postImage.leadingAnchor.constraint(equalTo: leadingAnchor),
             postImage.trailingAnchor.constraint(equalTo: trailingAnchor),
-            postImage.heightAnchor.constraint(equalTo: heightAnchor, multiplier: 0.5)
+            postImage.heightAnchor.constraint(equalTo: heightAnchor, multiplier: 0.55)
         ])
     }
     
@@ -159,8 +159,19 @@ class PostCell: UICollectionViewCell {
     public func configureCell(_ post: Post) {
         
         shortDescriptionLabel.text = post.shortDescription
-        dateLabel.text = post.startDate.description
+        dateLabel.text = "Start Date: \(post.startDate)"
         postImage.kf.setImage(with: URL(string: post.imageURL))
+        
+        let orgId = post.orgId
+        
+          DatabaseService.shared.fetchUserInfo(userId: orgId) { [weak self] (result) in
+            switch result {
+            case .failure(let error):
+                print("\(error) getting org info")
+            case .success(let org):
+                self?.orgNameLabel.text = org.first?.name
+            }
+        }
         
     }
     

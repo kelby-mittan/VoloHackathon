@@ -11,6 +11,7 @@ pod 'Firebase/Firestore'
 pod 'FirebaseFirestoreSwift'
 pod 'Firebase/Storage'
 pod 'Kingfisher'
+pod 'MessageKit'
 
   target 'VoloHackathonTests' do
     inherit! :search_paths
