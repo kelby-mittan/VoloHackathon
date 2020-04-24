@@ -17,6 +17,7 @@ class ListedUserCell: UITableViewCell {
         let image = UIImageView()
         image.image = UIImage(systemName: "person")
         image.contentMode = .scaleAspectFill
+        // image.layer.cornerRadius = image.
         image.clipsToBounds = true
         return image
     }()

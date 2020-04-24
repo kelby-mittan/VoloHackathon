@@ -28,6 +28,7 @@ class NotificationsController: UIViewController {
     loadChats()
     createUsers()
     print("Notif tab")
+    view.backgroundColor = .white
 //    if self.chats.isEmpty {
 //      self.nfView.tableView.backgroundView = EmptyView(title: "No chats", message: "When an organization reaches out. It will appear up here", imageName: "exclamationmark.bubble")
 //    }
@@ -40,17 +41,17 @@ class NotificationsController: UIViewController {
         
     }
   
-  private var chats = [Chat]() {
-    didSet {
-      DispatchQueue.main.async {
-        if self.chats.isEmpty {
-          self.nfView.tableView.backgroundView = EmptyView(title: "No chats", message: "When an organization reaches out. It will show up here", imageName: "exclamationmark.bubble")
-        } else {
-            self.nfView.tableView.reloadData()
-        }
-        }
-    }
-  }
+  private var chats = [Chat]()
+//    didSet {
+//      DispatchQueue.main.async {
+//        if self.chats.isEmpty {
+//          self.nfView.tableView.backgroundView = EmptyView(title: "No chats", message: "When an organization reaches out. It will show up here", imageName: "exclamationmark.bubble")
+//        } else {
+//            self.nfView.tableView.reloadData()
+//        }
+//        }
+//    }
+  
 
   private func tableViewSetup() {
     nfView.tableView.dataSource = self
@@ -100,7 +101,6 @@ extension NotificationsController: UITableViewDataSource {
       fatalError("unable to downcast NotificationCell")
     }
     let org = listOfOrgs[indexPath.row]
-    cell.backgroundColor = #colorLiteral(red: 0.9568627477, green: 0.6588235497, blue: 0.5450980663, alpha: 1)
     cell.nameLabel.text = org.name
     return cell 
   }
@@ -108,7 +108,7 @@ extension NotificationsController: UITableViewDataSource {
 
 extension NotificationsController: UITableViewDelegate {
   func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-    return 100
+    return 80
   }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

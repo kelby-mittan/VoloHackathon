@@ -138,6 +138,7 @@ class PostDetailController: UIViewController {
                         print("\(error) getting org info")
                     case .success(let org):
                         annotation.title = org.first?.name
+                        self.detailView.smallLabel1.text = org.first?.name
                     }
                 }
                 
