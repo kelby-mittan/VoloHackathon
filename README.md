@@ -31,19 +31,34 @@ in the opportunity, the recruiter who made the posting for the opportunity will 
 ![Volo7](Images/Volo7.1.1.png)
 ![Volo8](Images/Volo8.1.1.png)
 
-##  GIF's
-
+##  Volunteer
 ![gif](Images/volunteerGIF.gif)
+
+## Recruiter
 ![gif](Images/recruiterGIF1.gif)
+
 ![gif](Images/submitGIF.gif)
 
 ## Code Snippets
 
-### Code Snippet
+### Loading a Chat
 ```swift
-
-```
-### Code Snippet   
-```swift
-    
+public func loadChats(user1ID: String, user2ID: String, completion: @escaping (Result<Chat, Error>) -> ()) {
+    db.collection(DatabaseService.chats).whereField(DatabaseService.users, arrayContains: user1ID).getDocuments { (snapshot, error) in
+      if let error = error {
+        completion(.failure(error))
+      } else if let snapshot = snapshot {
+        for doc in snapshot.documents {
+          if let chat = Chat(dictionary: doc.data()) {
+          if (chat.users.contains(user2ID)) {
+            self.docRef = doc.reference
+            let docReference = doc.reference
+            docReference.collection(DatabaseService.threads).order(by: "created", descending: false)
+          }
+          completion(.success(chat))
+          }
+        }
+      }
+    }
+  }
 ```
