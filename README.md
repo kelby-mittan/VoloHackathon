@@ -18,9 +18,9 @@ in the opportunity, the recruiter who made the posting for the opportunity will 
 
 ## ScreenShot of App
 
-![nytImage1](Images/nytImage1.2.png)
-![nytImage2](Images/nytImage2.2.png)
-![nytImage3](Images/nytImage3.2.png)
+![Volo1](Images/Volo1.png)
+![Volo2](Images/Volo2.png)
+![Volo3](Images/Volo3.png)
 
 ##  GIF's
 
