@@ -6,7 +6,6 @@
 ##### Brendon Cecilio - https://github.com/bcecilio
 ##### Kelby Mittan - https://github.com/kelby-mittan
 
-
 ## Description
 
 Volo is an application that is designed to make searching for and finding, as well as out reach to interested parties more pleasurable
@@ -16,16 +15,21 @@ opportunities or an experience for an organization's recruiter. Volo is distinct
 a volunteer and recruiter for a volunteer organization. Once a volunteer has searched for an opportunity and showed their interest 
 in the opportunity, the recruiter who made the posting for the opportunity will be notified and a chat can be initiated by either side.
 
+## Implementations
+- Firebase
+- MapKit
+- MessageKit
+
 ## ScreenShot of App
 
 ![Volo1](Images/Volo1.1.1.png)
 ![Volo2](Images/Volo2.1.1.png)
 ![Volo3](Images/Volo3.1.1.png)
 ![Volo4](Images/Volo4.1.1.png)
-![Volo5](Images/Volo5.1.png)
-![Volo6](Images/Volo6.1.png)
+![Volo5](Images/Volo5.1.1.png)
+![Volo6](Images/Volo6.1.1.png)
 ![Volo7](Images/Volo7.1.1.png)
-![Volo8](Images/Volo8.1.png)
+![Volo8](Images/Volo8.1.1.png)
 
 ##  GIF's
 
