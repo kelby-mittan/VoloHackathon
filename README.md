@@ -33,8 +33,9 @@ in the opportunity, the recruiter who made the posting for the opportunity will 
 
 ##  GIF's
 
-![gif](Images/nytGIF1.1.gif)
-![gif](Images/nytGIF2.1.gif)
+![gif](Images/volunteerGIF.gif)
+![gif](Images/recruiterGIF1.gif)
+![gif](Images/submitGIF.gif)
 
 ## Code Snippets
 
