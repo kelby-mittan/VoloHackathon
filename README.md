@@ -2,8 +2,11 @@
 
 ## Contributors
 [Ameni Alsaydi](https://github.com/AmeniAlsaydi) 
+
 [Eric Davenport](https://github.com/EricDavenport) 
+
 [Brendon Cecilio](https://github.com/bcecilio)
+
 [Kelby Mittan](https://github.com/kelby-mittan)
 
 
