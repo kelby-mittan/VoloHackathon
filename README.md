@@ -1,10 +1,10 @@
 # VOLO - Hackathon App (Community Health)
 
 ## Contributors
-[https://github.com/AmeniAlsaydi](Ameni Alsaydi) 
-[https://github.com/EricDavenport](Eric Davenport) 
-[https://github.com/bcecilio](Brendon Cecilio)
-[https://github.com/kelby-mittan](Kelby Mittan)
+[Ameni Alsaydi](https://github.com/AmeniAlsaydi) 
+[Eric Davenport](https://github.com/EricDavenport) 
+[Brendon Cecilio](https://github.com/bcecilio)
+[Kelby Mittan](https://github.com/kelby-mittan)
 
 
 ## Description
