@@ -1,10 +1,11 @@
 # VOLO - Hackathon App (Community Health)
 
 ## Contributors
-##### Ameni Alsaydi - https://github.com/AmeniAlsaydi
-##### Eric Davenport - https://github.com/EricDavenport
-##### Brendon Cecilio - https://github.com/bcecilio
-##### Kelby Mittan - https://github.com/kelby-mittan
+[https://github.com/AmeniAlsaydi](Ameni Alsaydi) 
+[https://github.com/EricDavenport](Eric Davenport) 
+[https://github.com/bcecilio](Brendon Cecilio)
+[https://github.com/kelby-mittan](Kelby Mittan)
+
 
 ## Description
 
@@ -15,10 +16,11 @@ opportunities or an experience for an organization's recruiter. Volo is distinct
 a volunteer and recruiter for a volunteer organization. Once a volunteer has searched for an opportunity and showed their interest 
 in the opportunity, the recruiter who made the posting for the opportunity will be notified and a chat can be initiated by either side.
 
-## Implementations
+## Frameworks
 - Firebase
 - MapKit
 - MessageKit
+- Kingfisher
 
 ## ScreenShot of App
 
